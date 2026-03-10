@@ -1,0 +1,31 @@
+{% assign ev = include.event %}
+<div class="event-card bg-white rounded-2xl border border-stone-100 overflow-hidden shadow-sm hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 reveal">
+  <div class="p-6 border-b border-stone-100">
+    <div class="text-4xl mb-3">{{ ev.emoji | default: "📅" }}</div>
+    <span class="event-cat cat-{{ ev.category }} inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-3">
+      {{ ev.category }}
+    </span>
+    <h3 class="text-xl font-bold leading-snug mb-2" style="font-family:'Playfair Display',serif">{{ ev.title }}</h3>
+    <p class="text-stone-500 text-sm leading-relaxed line-clamp-3">{{ ev.description }}</p>
+  </div>
+  <div class="p-6 space-y-2.5">
+    <div class="flex items-center gap-2.5 text-sm text-stone-600">
+      <span class="text-base">📅</span>
+      <span>{{ ev.date | date: "%A, %B %-d, %Y" }}</span>
+    </div>
+    <div class="flex items-center gap-2.5 text-sm text-stone-600">
+      <span class="text-base">🕐</span>
+      <span>{{ ev.time }}</span>
+    </div>
+    <div class="flex items-center gap-2.5 text-sm text-stone-600">
+      <span class="text-base">📍</span>
+      <span>{{ ev.location }}</span>
+    </div>
+    {% if ev.register_url and ev.register_url != "" %}
+    <a href="{{ ev.register_url }}" target="_blank" rel="noopener"
+       class="btn-saffron inline-block text-sm mt-3 px-5 py-2.5">
+      Register Now →
+    </a>
+    {% endif %}
+  </div>
+</div>

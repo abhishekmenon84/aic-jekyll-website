@@ -1,0 +1,15 @@
+{% assign label = include.label %}
+{% assign title = include.title %}
+{% assign subtitle = include.subtitle %}
+{% assign center = include.center | default: true %}
+
+<div class="{% if center %}text-center{% endif %} mb-12 reveal">
+  {% if label %}
+  <p class="section-label">{{ label }}</p>
+  {% endif %}
+  <h2 class="section-title">{{ title }}</h2>
+  <div class="divider {% if center %}mx-auto{% endif %}"></div>
+  {% if subtitle %}
+  <p class="text-stone-500 {% if center %}max-w-2xl mx-auto{% endif %} leading-relaxed">{{ subtitle }}</p>
+  {% endif %}
+</div>

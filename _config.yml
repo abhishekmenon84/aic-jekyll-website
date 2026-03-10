@@ -1,0 +1,70 @@
+title: "Association of Indo-Canadians – Fredericton"
+tagline: "Vibrant · Inclusive · Engaged"
+description: "AIC Fredericton is dedicated to fostering a vibrant, inclusive, and engaged Indo-Canadian community in New Brunswick, Canada."
+url: "https://aicfred.org"
+baseurl: ""
+email: "info@aicfred.org"
+logo: "/assets/images/logo.jpeg"
+
+# Organization info
+org:
+  name: "Association of Indo-Canadians"
+  short_name: "AIC Fredericton"
+  location: "Fredericton, New Brunswick, Canada"
+  founded: "2010"
+  phone: ""
+  social:
+    facebook: "https://facebook.com/aicfredericton"
+    instagram: "https://instagram.com/aicfredericton"
+    twitter: "https://twitter.com/aicfredericton"
+    youtube: ""
+
+# Google Form — replace with your actual form link
+volunteer_form_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+
+# Jekyll build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  executives:
+    output: false
+  events:
+    output: true
+    permalink: /events/:name/
+  volunteers:
+    output: false
+
+# Collection defaults
+defaults:
+  - scope:
+      path: ""
+      type: "executives"
+    values:
+      active: true
+  - scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "event"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - README.md

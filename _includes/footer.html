@@ -1,0 +1,60 @@
+<footer class="bg-charcoal py-14 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-10 border-b border-white/10 pb-10 mb-8">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="{{ '/assets/images/logo.jpeg' | relative_url }}" alt="AIC"
+               class="w-10 h-10 rounded-full object-cover" />
+          <span class="text-white font-semibold">{{ site.org.short_name }}</span>
+        </div>
+        <p class="text-white/40 text-sm leading-relaxed mb-4">{{ site.description }}</p>
+        <!-- Social links -->
+        <div class="flex gap-3">
+          {% if site.org.social.facebook != "" %}
+          <a href="{{ site.org.social.facebook }}" target="_blank" rel="noopener"
+             class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/40 hover:text-white hover:border-white/60 transition-all text-sm" title="Facebook">f</a>
+          {% endif %}
+          {% if site.org.social.instagram != "" %}
+          <a href="{{ site.org.social.instagram }}" target="_blank" rel="noopener"
+             class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/40 hover:text-white hover:border-white/60 transition-all text-sm" title="Instagram">ig</a>
+          {% endif %}
+          {% if site.org.social.twitter != "" %}
+          <a href="{{ site.org.social.twitter }}" target="_blank" rel="noopener"
+             class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/40 hover:text-white hover:border-white/60 transition-all text-sm" title="Twitter">tw</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <p class="text-white/50 font-semibold text-xs uppercase tracking-widest mb-4">Quick Links</p>
+        <div class="flex flex-col gap-2">
+          {% for item in site.data.navigation.main %}
+          <a href="{{ item.url | relative_url }}"
+             class="text-white/40 text-sm hover:text-white transition-colors">{{ item.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="text-white/50 font-semibold text-xs uppercase tracking-widest mb-4">Contact</p>
+        <div class="space-y-3 text-sm text-white/40">
+          <p>📍 {{ site.org.location }}</p>
+          <p>📧 <a href="mailto:{{ site.email }}" class="hover:text-white transition-colors">{{ site.email }}</a></p>
+          <p>🌐 <a href="{{ site.url }}" class="hover:text-white transition-colors">{{ site.url | remove: 'https://' }}</a></p>
+        </div>
+        <div class="mt-4 text-xs text-white/20">
+          <p>Registered Non-Profit Organization<br>New Brunswick, Canada</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-3 text-white/25 text-xs">
+      <p>© {{ 'now' | date: "%Y" }} {{ site.org.name }}. All rights reserved.</p>
+      <p>🇮🇳 🤝 🇨🇦 &nbsp;Built with ♥ for our community</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,82 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AIC FREDERICTON — PAST EVENTS
+# ─────────────────────────────────────────────────────────────────────────────
+# Move events here from upcoming_events.yml once they've passed.
+# attendees: approximate number who attended
+# highlights: short bullet points of what made it special (shown in gallery)
+# ─────────────────────────────────────────────────────────────────────────────
+
+- title: "Diwali Night Gala 2025"
+  date: "2025-11-01"
+  location: "Crowne Plaza, Fredericton, NB"
+  category: "Gala"
+  emoji: "🪔"
+  attendees: 250
+  highlights:
+    - "Sold-out event with 250 attendees"
+    - "Live classical dance performances by Nritya Dance Academy"
+    - "Traditional 5-course Indian dinner"
+    - "Fundraised $4,200 for local food bank"
+  image: ""
+
+- title: "Holi 2025 – Festival of Colours"
+  date: "2025-03-15"
+  location: "Odell Park, Fredericton, NB"
+  category: "Cultural"
+  emoji: "🎨"
+  attendees: 180
+  highlights:
+    - "Over 180 community members celebrated"
+    - "Traditional thandai and sweets served"
+    - "Live dhol drumming"
+    - "Featured in the Daily Gleaner"
+  image: ""
+
+- title: "Navratri Garba Night 2025"
+  date: "2025-10-03"
+  location: "Fredericton Community Centre"
+  category: "Cultural"
+  emoji: "🎶"
+  attendees: 120
+  highlights:
+    - "3 nights of Garba and Dandiya Raas"
+    - "Traditional attire competition"
+    - "Best attended Navratri event in AIC history"
+  image: ""
+
+- title: "Indo-Canadian Cultural Fair 2025"
+  date: "2025-06-21"
+  location: "Officers' Square, Fredericton, NB"
+  category: "Community"
+  emoji: "🌏"
+  attendees: 300
+  highlights:
+    - "National Indigenous Peoples Day collaboration"
+    - "Cultural stalls, food, art, and crafts"
+    - "Over 300 attendees from diverse backgrounds"
+    - "Live music and dance performances"
+  image: ""
+
+- title: "Diwali Gala 2024"
+  date: "2024-10-25"
+  location: "Delta Hotels, Fredericton, NB"
+  category: "Gala"
+  emoji: "🪔"
+  attendees: 200
+  highlights:
+    - "Theme: A Thousand Lights"
+    - "Live Bollywood band performance"
+    - "Raised $3,500 for the Indo-Canadian Scholarship Fund"
+  image: ""
+
+- title: "Holi 2024"
+  date: "2024-03-24"
+  location: "Odell Park, Fredericton, NB"
+  category: "Cultural"
+  emoji: "🎨"
+  attendees: 150
+  highlights:
+    - "First outdoor Holi celebration post-COVID"
+    - "Catered by local Indian restaurants"
+    - "150+ community members participated"
+  image: ""

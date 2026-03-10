@@ -1,0 +1,74 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AIC FREDERICTON — UPCOMING EVENTS
+# ─────────────────────────────────────────────────────────────────────────────
+# date format: YYYY-MM-DD
+# category options: Cultural | Gala | Community | Arts | Education | Sports
+# featured: true  ← shows this event prominently on homepage
+# register_url: link to your Google Form or Eventbrite
+# ─────────────────────────────────────────────────────────────────────────────
+
+- title: "Holi Festival of Colours 2026"
+  date: "2026-03-21"
+  time: "2:00 PM – 6:00 PM"
+  location: "Odell Park, Fredericton, NB"
+  description: "Join us for a vibrant celebration of Holi! Enjoy colours, music, traditional sweets, and community spirit in the heart of Fredericton. All ages welcome — wear white!"
+  category: "Cultural"
+  emoji: "🎨"
+  featured: true
+  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  image: ""
+
+- title: "Newcomers Welcome Orientation"
+  date: "2026-04-05"
+  time: "10:00 AM – 1:00 PM"
+  location: "Fredericton Public Library, NB"
+  description: "A warm welcome session for new Indo-Canadian arrivals. Learn about local resources, settlement services, healthcare, schools, and connect with our growing community."
+  category: "Community"
+  emoji: "🤝"
+  featured: false
+  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  image: ""
+
+- title: "Classical Indian Dance Workshop"
+  date: "2026-05-10"
+  time: "11:00 AM – 3:00 PM"
+  location: "AIC Community Hall, Fredericton"
+  description: "An interactive Bharatanatyam and Kathak workshop for all ages. No experience required — just bring your enthusiasm and comfortable clothing!"
+  category: "Arts"
+  emoji: "💃"
+  featured: false
+  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  image: ""
+
+- title: "Canada Day Indo-Canadian Family Picnic"
+  date: "2026-07-01"
+  time: "12:00 PM – 5:00 PM"
+  location: "Wilmot Park, Fredericton, NB"
+  description: "A family-friendly picnic celebrating our dual heritage — proudly Canadian, proudly Indian. Expect cricket, badminton, delicious food, and amazing company!"
+  category: "Community"
+  emoji: "🍁"
+  featured: true
+  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  image: ""
+
+- title: "Youth Leadership Summit 2026"
+  date: "2026-08-15"
+  time: "9:00 AM – 4:00 PM"
+  location: "University of New Brunswick, Fredericton"
+  description: "Independence Day special — a full-day summit for Indo-Canadian youth aged 14–30. Features guest speakers, mentorship sessions, career panels, and networking."
+  category: "Education"
+  emoji: "🎓"
+  featured: false
+  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  image: ""
+
+- title: "Diwali Night Gala 2026"
+  date: "2026-10-20"
+  time: "6:00 PM – 11:00 PM"
+  location: "Delta Hotels by Marriott, Fredericton"
+  description: "Celebrate the Festival of Lights with stunning dance performances, traditional cuisine, a cultural show, and a spectacular light display. Black-tie optional."
+  category: "Gala"
+  emoji: "🪔"
+  featured: true
+  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  image: ""

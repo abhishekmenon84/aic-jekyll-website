@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+  <link rel="icon" href="{{ '/assets/images/logo.jpeg' | relative_url }}" type="image/jpeg" />
+
+  <!-- SEO -->
+  {% seo %}
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+
+  {% if page.extra_head %}{{ page.extra_head }}{% endif %}
+</head>
+<body class="bg-cream text-charcoal">
+
+  {% include nav.html %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <!-- Site JS -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  {% if page.extra_js %}{{ page.extra_js }}{% endif %}
+
+</body>
+</html>

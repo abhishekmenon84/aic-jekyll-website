@@ -1,0 +1,79 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AIC FREDERICTON — EXECUTIVE TEAM
+# ─────────────────────────────────────────────────────────────────────────────
+# To add a person: copy a block and fill in the fields.
+# photo: place image in /assets/images/team/ and reference it here.
+#        If no photo, leave photo blank ("") for the initials avatar.
+# ─────────────────────────────────────────────────────────────────────────────
+
+- name: "Rajesh Sharma"
+  role: "President"
+  photo: ""
+  bio: "Rajesh has been an active member of the Indo-Canadian community in Fredericton for over 12 years. He leads AIC with a passion for cultural preservation and community development."
+  email: "president@aicfred.org"
+  linkedin: ""
+  term: "2024–2026"
+  active: true
+
+- name: "Priya Nair"
+  role: "Vice President"
+  photo: ""
+  bio: "Priya brings a background in community social work and has organized over 30 cultural events for AIC. She oversees volunteer coordination and public relations."
+  email: "vp@aicfred.org"
+  linkedin: ""
+  term: "2024–2026"
+  active: true
+
+- name: "Amit Patel"
+  role: "Treasurer"
+  photo: ""
+  bio: "A chartered accountant by profession, Amit manages AIC's finances with transparency and accountability, ensuring sustainable growth for the organization."
+  email: "treasurer@aicfred.org"
+  linkedin: ""
+  term: "2024–2026"
+  active: true
+
+- name: "Sunita Krishnamurthy"
+  role: "Secretary"
+  photo: ""
+  bio: "Sunita handles communications, meeting records, and member correspondence. She has a background in administration and has been with AIC since its early years."
+  email: "secretary@aicfred.org"
+  linkedin: ""
+  term: "2024–2026"
+  active: true
+
+- name: "Vikram Singh"
+  role: "Events Director"
+  photo: ""
+  bio: "Vikram leads all event planning and logistics for AIC. His creative vision has brought unforgettable Diwali and Holi celebrations to Fredericton for the past 5 years."
+  email: "events@aicfred.org"
+  linkedin: ""
+  term: "2024–2026"
+  active: true
+
+- name: "Deepa Menon"
+  role: "Cultural Director"
+  photo: ""
+  bio: "Deepa oversees cultural programming, including dance workshops, music events, and language classes. She is a classical Bharatanatyam performer and teacher."
+  email: "culture@aicfred.org"
+  linkedin: ""
+  term: "2024–2026"
+  active: true
+
+- name: "Arjun Verma"
+  role: "Youth Director"
+  photo: ""
+  bio: "Arjun champions AIC's youth initiatives, engaging the next generation of Indo-Canadians through leadership programs, scholarships, and mentorship opportunities."
+  email: "youth@aicfred.org"
+  linkedin: ""
+  term: "2024–2026"
+  active: true
+
+- name: "Meera Iyer"
+  role: "Communications Director"
+  photo: ""
+  bio: "Meera manages AIC's social media, newsletter, and website. She holds a degree in digital communications and has grown AIC's online presence significantly."
+  email: "comms@aicfred.org"
+  linkedin: ""
+  term: "2024–2026"
+  active: true

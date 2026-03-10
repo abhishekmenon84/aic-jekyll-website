@@ -1,0 +1,19 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# NAVIGATION — Edit to add/remove nav links
+# ─────────────────────────────────────────────────────────────────────────────
+
+main:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/#about"
+  - title: "Events"
+    url: "/events/"
+  - title: "Heritage"
+    url: "/#heritage"
+  - title: "Executives"
+    url: "/executives/"
+  - title: "Volunteer"
+    url: "/volunteer/"
+  - title: "Contact"
+    url: "/#contact"

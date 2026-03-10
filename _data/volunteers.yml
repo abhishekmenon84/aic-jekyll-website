@@ -1,0 +1,89 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AIC FREDERICTON — VOLUNTEER ROLES
+# ─────────────────────────────────────────────────────────────────────────────
+# Each role listed here appears as a card on the Volunteer page.
+# spots_available: use null for "unlimited" or a number like 5
+# commitment: short description of time required
+# ─────────────────────────────────────────────────────────────────────────────
+
+- title: "Event Volunteer"
+  emoji: "🎪"
+  description: "Help set up, manage, and wrap up AIC events. Tasks include decoration, registration desk, crowd management, and cleanup. Great for newcomers looking to connect!"
+  commitment: "4–8 hours per event"
+  spots_available: null
+  skills_needed:
+    - "Enthusiastic attitude"
+    - "Team player"
+    - "Physically able to assist with setup"
+  contact: "events@aicfred.org"
+
+- title: "Cultural Performer"
+  emoji: "💃"
+  description: "Share your talent with the community! We welcome dancers, musicians, singers, poets, and storytellers to perform at our cultural events throughout the year."
+  commitment: "Varies by event"
+  spots_available: null
+  skills_needed:
+    - "Any performing art (dance, music, spoken word)"
+    - "Rehearsal commitment"
+  contact: "culture@aicfred.org"
+
+- title: "Communications & Social Media"
+  emoji: "📱"
+  description: "Help us grow our online presence. Tasks include creating social media content, photography at events, writing newsletters, and managing our website."
+  commitment: "3–5 hours per week"
+  spots_available: 3
+  skills_needed:
+    - "Social media savvy"
+    - "Basic photography or design (Canva, etc.)"
+    - "Good written English"
+  contact: "comms@aicfred.org"
+
+- title: "Youth Mentor"
+  emoji: "🎓"
+  description: "Guide the next generation of Indo-Canadians. Mentor youth aged 14–25 on academics, career paths, cultural identity, and leadership development."
+  commitment: "2–4 hours per month"
+  spots_available: 5
+  skills_needed:
+    - "Professional background in any field"
+    - "Patience and passion for youth development"
+  contact: "youth@aicfred.org"
+
+- title: "Newcomer Settlement Helper"
+  emoji: "🤝"
+  description: "Help newly arrived Indo-Canadians navigate life in Fredericton. Assist with orientation sessions, connect newcomers to resources, and provide friendly guidance."
+  commitment: "Flexible"
+  spots_available: null
+  skills_needed:
+    - "Knowledge of local resources"
+    - "Multilingual skills are a bonus"
+    - "Empathy and patience"
+  contact: "info@aicfred.org"
+
+- title: "Food & Catering Team"
+  emoji: "🍛"
+  description: "Showcase your culinary skills at AIC events! Help plan menus, coordinate catering, and serve traditional Indian dishes at potlucks and cultural celebrations."
+  commitment: "Event-based"
+  spots_available: null
+  skills_needed:
+    - "Love of cooking"
+    - "Food handling certificate (preferred)"
+  contact: "events@aicfred.org"
+
+- title: "Fundraising & Sponsorship"
+  emoji: "💼"
+  description: "Help secure sponsorships and donations to fund AIC's programs. Reach out to local businesses, apply for grants, and organize fundraising initiatives."
+  commitment: "5–10 hours per month"
+  spots_available: 2
+  skills_needed:
+    - "Sales or networking background helpful"
+    - "Confident communicator"
+  contact: "treasurer@aicfred.org"
+
+- title: "Translation & Interpretation"
+  emoji: "🗣️"
+  description: "Bridge language barriers for community members. Help translate documents, interpret at meetings, and support newcomers who speak Hindi, Punjabi, Tamil, Gujarati, or other Indian languages."
+  commitment: "As needed"
+  spots_available: null
+  skills_needed:
+    - "Fluency in English + one or more Indian languages"
+  contact: "info@aicfred.org"
