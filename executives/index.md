@@ -28,7 +28,7 @@ permalink: /executives/
     {% assign inactive_execs = site.data.executives | where: "active", false %}
 
     {% if active_execs.size > 0 %}
-    {% include section_header.html label="Current Board" title="2024–2026 Executive Team" subtitle="Our current board of directors, elected by the AIC Fredericton membership." %}
+    {% include section_header.html label="Current Board" title="2025–2027 Executive Team" subtitle="Our current board of directors, elected by the AIC Fredericton membership." %}
 
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {% for exec in active_execs %}
