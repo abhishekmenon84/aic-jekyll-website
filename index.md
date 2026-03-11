@@ -242,9 +242,8 @@ description: "AIC Fredericton — Fostering a vibrant, inclusive, and engaged In
           </div>
         </div>
         <div class="flex gap-3 mt-8">
-          {% if site.org.social.facebook != "" %}<a href="{{ site.org.social.facebook }}" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-stone-200 flex items-center justify-center text-sm font-bold text-stone-400 hover:border-orange-400 hover:text-orange-500 transition-all">f</a>{% endif %}
-          {% if site.org.social.instagram != "" %}<a href="{{ site.org.social.instagram }}" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-stone-200 flex items-center justify-center text-xs font-bold text-stone-400 hover:border-orange-400 hover:text-orange-500 transition-all">ig</a>{% endif %}
-          {% if site.org.social.twitter != "" %}<a href="{{ site.org.social.twitter }}" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-stone-200 flex items-center justify-center text-xs font-bold text-stone-400 hover:border-orange-400 hover:text-orange-500 transition-all">tw</a>{% endif %}
+          {% if site.org.social.facebook != "" %}<a href="{{ site.org.social.facebook }}" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-stone-200 flex items-center justify-center text-sm font-bold text-stone-400 hover:border-orange-400 hover:text-orange-500 transition-all"><img src="assets/images/f-logo.png" alt="Facebook Logo" /></a>{% endif %}
+          {% if site.org.social.instagram != "" %}<a href="{{ site.org.social.instagram }}" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-stone-200 flex items-center justify-center text-xs font-bold text-stone-400 hover:border-orange-400 hover:text-orange-500 transition-all"><img src="assets/images/i-logo.png" alt="Instagram Logo" /></a>{% endif %}
         </div>
       </div>
 

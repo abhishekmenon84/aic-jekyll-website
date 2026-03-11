@@ -6,42 +6,55 @@
 # highlights: short bullet points of what made it special (shown in gallery)
 # ─────────────────────────────────────────────────────────────────────────────
 
-- title: "Diwali Night Gala 2025"
+- title: "Meeting with Acting Consul General Mr. Kapidhwaja Pratap Singh 2025"
   date: "2025-11-01"
-  location: "Crowne Plaza, Fredericton, NB"
-  category: "Gala"
+  location: "Issac Way, Fredericton, NB"
+  category: "Meeting"
   emoji: "🪔"
-  attendees: 250
+  attendees: 9
   highlights:
-    - "Sold-out event with 250 attendees"
-    - "Live classical dance performances by Nritya Dance Academy"
-    - "Traditional 5-course Indian dinner"
-    - "Fundraised $4,200 for local food bank"
-  image: ""
+    - "Meeting with Acting Consul General Mr. Kapidhwaja Pratap Singh"
+    - "G7 meeting"
+    - "New Updates in India and Canada relations"
+    - "Economics Opportunity, Canadian Companies investing in India"
+    - "JDI - business opportunity"
+    - "Virtual meeting with Mayors"
+    - "New Query Forms instead of phone"
+    - "Consulate to respond in 48 hours"
+    - "OCI accepting Debit Card"
+    - "AIC can arrange ( every 2 Months ) virtual Meeting With Consulate General"
+    - "BLS is blacklisted for the next 2 years"
+    - "If we have a large number of applications, then the Consulate can put a camp in Fredericton or a neighboring city."
+  image: "/events/Meeting_with_Aging_Consul_General.jpg"
 
-- title: "Holi 2025 – Festival of Colours"
-  date: "2025-03-15"
-  location: "Odell Park, Fredericton, NB"
+- title: "77th Republic Day Celebration 2026"
+  date: "2026-01-31"
+  location: "Willie O'Ree Place, Fredericton, NB"
   category: "Cultural"
   emoji: "🎨"
-  attendees: 180
+  attendees: 100
   highlights:
-    - "Over 180 community members celebrated"
-    - "Traditional thandai and sweets served"
-    - "Live dhol drumming"
-    - "Featured in the Daily Gleaner"
-  image: ""
+    - "Over 100 community members celebrated"
+    - "Food served by Salt and Pepper, Mantra restaurant, Manna restaurant, Tandoori Adda restaurant, PIzza Hut, Gibson Convienace Store and Spice Market"
+    - "Singing, patriotic performances and skits brought the spirit of India to life."
+    - "To our charismatic MC, our dedicated event helpers, and the tireless AIC Team, this night wouldn't have been possible without your behind-the-scenes magic."
+    - "Thank you to everyone who joined us. Seeing such a diverse crowd celebrate together is what the AIC is all about."
+  image: "/events/Republic_Day_Celebration_2026.jpg"
 
-- title: "Navratri Garba Night 2025"
-  date: "2025-10-03"
-  location: "Fredericton Community Centre"
+- title: "New Year’s Eve Gala 2025"
+  date: "2025-12-31"
+  location: "Charlotte Street Arts Centre, Fredericton, NB"
   category: "Cultural"
   emoji: "🎶"
   attendees: 120
   highlights:
-    - "3 nights of Garba and Dandiya Raas"
-    - "Traditional attire competition"
-    - "Best attended Navratri event in AIC history"
+    - "Our Performers & Singers: Thank you for sharing your incredible talent and keeping our spirits high throughout the evening"
+    - "Manna Food: The catering was exceptional. Thank you for providing us with a delicious taste of home."
+    - "Our MCs: Thank you Ms Kavita and Mr Ritesh for your charisma and for keeping the evening flowing perfectly."
+    - "DJ Chinku (Mr. Drashant): Thank you for the incredible music that kept the dance floor packed until the very end."
+    - "The AIC Team: To my hardworking team, thank you for the months of planning and the late nights that made this vision a reality."
+    - "The Audience: Most importantly, thank you to all the participants and attendees. Your presence is what makes the AIC more than just an organization—you make it a community."
+    - "Charlotte Street Arts Centre:  Thank you Art Centre for letting us host our grand gathering."
   image: ""
 
 - title: "Indo-Canadian Cultural Fair 2025"
@@ -57,26 +70,15 @@
     - "Live music and dance performances"
   image: ""
 
-- title: "Diwali Gala 2024"
-  date: "2024-10-25"
-  location: "Delta Hotels, Fredericton, NB"
+- title: "Diwali Mela 2025"
+  date: "2025-11-01"
+  location: "715 Priestman St, Fredericton, NB"
   category: "Gala"
   emoji: "🪔"
-  attendees: 200
+  attendees: 400
   highlights:
     - "Theme: A Thousand Lights"
     - "Live Bollywood band performance"
-    - "Raised $3,500 for the Indo-Canadian Scholarship Fund"
-  image: ""
+  image: "/events/Diwali-mela-festival.jpg"
 
-- title: "Holi 2024"
-  date: "2024-03-24"
-  location: "Odell Park, Fredericton, NB"
-  category: "Cultural"
-  emoji: "🎨"
-  attendees: 150
-  highlights:
-    - "First outdoor Holi celebration post-COVID"
-    - "Catered by local Indian restaurants"
-    - "150+ community members participated"
-  image: ""
+- 

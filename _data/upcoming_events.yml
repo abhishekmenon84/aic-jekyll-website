@@ -7,15 +7,15 @@
 # register_url: link to your Google Form or Eventbrite
 # ─────────────────────────────────────────────────────────────────────────────
 
-- title: "Holi Festival of Colours 2026"
-  date: "2026-03-21"
-  time: "2:00 PM – 6:00 PM"
-  location: "Odell Park, Fredericton, NB"
-  description: "Join us for a vibrant celebration of Holi! Enjoy colours, music, traditional sweets, and community spirit in the heart of Fredericton. All ages welcome — wear white!"
+- title: "Movie Marathon 2026"
+  date: "2026-03-14"
+  time: "12:00 PM – 10:00 PM"
+  location: "Fredericton, NB"
+  description: "Join us for a movie marathon of Bollywood classics"
   category: "Cultural"
   emoji: "🎨"
   featured: true
-  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  register_url: "https://forms.gle/NMHD5SfpKbzknsgm6"
   image: ""
 
 - title: "Newcomers Welcome Orientation"
@@ -26,7 +26,7 @@
   category: "Community"
   emoji: "🤝"
   featured: false
-  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
 
 - title: "Classical Indian Dance Workshop"
@@ -37,18 +37,18 @@
   category: "Arts"
   emoji: "💃"
   featured: false
-  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
 
 - title: "Canada Day Indo-Canadian Family Picnic"
   date: "2026-07-01"
-  time: "12:00 PM – 5:00 PM"
-  location: "Wilmot Park, Fredericton, NB"
-  description: "A family-friendly picnic celebrating our dual heritage — proudly Canadian, proudly Indian. Expect cricket, badminton, delicious food, and amazing company!"
+  time: "12:00 PM – 11:00 PM"
+  location: "Office Square, Fredericton, NB"
+  description: "A family-friendly picnic celebrating our dual heritage — proudly Canadian, proudly Indian. Expect fun games, music and amazing company"
   category: "Community"
   emoji: "🍁"
   featured: true
-  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
 
 - title: "Youth Leadership Summit 2026"
@@ -59,16 +59,16 @@
   category: "Education"
   emoji: "🎓"
   featured: false
-  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
 
 - title: "Diwali Night Gala 2026"
-  date: "2026-10-20"
+  date: "2026-11-08"
   time: "6:00 PM – 11:00 PM"
-  location: "Delta Hotels by Marriott, Fredericton"
+  location: "TBD, Fredericton"
   description: "Celebrate the Festival of Lights with stunning dance performances, traditional cuisine, a cultural show, and a spectacular light display. Black-tie optional."
   category: "Gala"
   emoji: "🪔"
   featured: true
-  register_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
+  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
