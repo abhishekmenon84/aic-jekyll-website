@@ -3,7 +3,7 @@ tagline: "Vibrant · Inclusive · Engaged"
 description: "AIC Fredericton is dedicated to fostering a vibrant, inclusive, and engaged Indo-Canadian community in New Brunswick, Canada."
 url: "https://aicfred.org"
 baseurl: ""
-email: "info@aicfred.org"
+email: "indo.canadians@gmail.com"
 logo: "/assets/images/logo.jpeg"
 
 # Organization info
@@ -14,10 +14,8 @@ org:
   founded: "2010"
   phone: ""
   social:
-    facebook: "https://facebook.com/aicfredericton"
-    instagram: "https://instagram.com/aicfredericton"
-    twitter: "https://twitter.com/aicfredericton"
-    youtube: ""
+    facebook: "https://www.facebook.com/manisha.c.d"
+    instagram: "https://www.instagram.com/aic_nb/"
 
 # Google Form — replace with your actual form link
 volunteer_form_url: "https://forms.gle/REPLACE_WITH_YOUR_FORM"
