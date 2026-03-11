@@ -7,13 +7,28 @@
 # register_url: link to your Google Form or Eventbrite
 # ─────────────────────────────────────────────────────────────────────────────
 
-- title: "Movie Marathon 2026"
-  date: "2026-03-14"
-  time: "12:00 PM – 10:00 PM"
+- title: "Movie Marathon 2026 #1"
+  date: "2026-04-04"
+  time: "10:00 AM – 09:00 PM"
   location: "Fredericton, NB"
-  description: "Join us for a movie marathon of Bollywood classics"
+  description: "11:00 am - 2:00 pm: Hindi Movie 83 (2021)
+                2:30 pm - 5:00 pm: Gujarati Movie Hellaro (2019)
+                5:30 pm - 8:30 pm: Malayalam Movie Thondimuthalum Driksakshiyum (2017)"
   category: "Cultural"
-  emoji: "🎨"
+  emoji: "🎥"
+  featured: true
+  register_url: "https://forms.gle/NMHD5SfpKbzknsgm6"
+  image: ""
+
+- title: "Movie Marathon 2026 #2"
+  date: "2026-04-05"
+  time: "10:00 AM – 09:00 PM"
+  location: "Fredericton, NB"
+  description: "11:00 am - 2:00 pm: Tamil Movie Jai Bhim (2021)
+                2:30 pm - 5:00 pm: Hindi Movie Zindagi Na Milegi Dobara (2011)
+                5:30 pm - 8:30 pm: Tamil Movie Vikram (2022)"
+  category: "Cultural"
+  emoji: "🎥"
   featured: true
   register_url: "https://forms.gle/NMHD5SfpKbzknsgm6"
   image: ""
