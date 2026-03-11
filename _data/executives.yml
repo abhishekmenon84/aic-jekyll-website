@@ -8,7 +8,7 @@
 
 - name: "Abhishek Menon"
   role: "President"
-  photo: "/executives/Abhishek-Menon.jpg"
+  photo: "/assets/images/team/Abhishek-Menon.jpg"
   bio: "Abhishek is a dedicated member and President of the Indo-Canadian community in Fredericton."
   email: "indo.canadians@gmail.com"
   linkedin: "https://www.linkedin.com/in/abhishekmenon84/"
@@ -17,7 +17,7 @@
 
 - name: "Harmeet Kaur"
   role: "Social Secretary"
-  photo: "/executives/Harmeet-Kaur.jpg"
+  photo: "/assets/images/team/Harmeet-Kaur.jpg"
   bio: "Harmeet is a dedicated member and Social Secretary of the Indo-Canadian community in Fredericton."
   email: "harmeetchadha3@gmail.com"
   linkedin: ""
@@ -26,7 +26,7 @@
 
 - name: "Uthira Kumar Ponnusamy"
   role: "Secretary"
-  photo: "/executives/Uthira-Kumar-Ponnusamy.jpg"
+  photo: "/assets/images/team/Uthira-Kumar-Ponnusamy.jpg"
   bio: "Uthira is a dedicated member and Secretary of the Indo-Canadian community in Fredericton."
   email: "uthira47@gmail.com"
   linkedin: "https://www.linkedin.com/in/uthira-kumar-p-78108670/"
@@ -35,7 +35,7 @@
 
 - name: "Manisha Verma"
   role: "Board Of Director"
-  photo: "/executives/Manisha-Verma.jpg"
+  photo: "/assets/images/team/Manisha-Verma.jpg"
   bio: "Manisha is a dedicated member and Board Of Director of the Indo-Canadian community in Fredericton."
   email: "indo.canadians@gmail.com"
   linkedin: ""
@@ -44,7 +44,7 @@
 
 - name: "Mathuresh Singh"
   role: "Board Of Director"
-  photo: "/executives/Mathuresh-Singh.jpg"
+  photo: "/assets/images/team/Mathuresh-Singh.jpg"
   bio: "Mathuresh is a dedicated member and Board Of Directorof the Indo-Canadian community in Fredericton."
   email: "NA"
   linkedin: "https://www.linkedin.com/in/mathuresh-singh-b631b519/"
@@ -53,7 +53,7 @@
 
 - name: "Dr. Rakesh Mishra"
   role: "Board Of Director"
-  photo: "/executives/Rakesh-Mishra.jpg"
+  photo: "/assets/images/team/Rakesh-Mishra.jpg"
   bio: "Rakesh is a dedicated member and Board Of Director of the Indo-Canadian community in Fredericton."
   email: "rkmishramca@gmail.com"
   linkedin: "https://www.linkedin.com/in/rakesh-mishra-phd/"
@@ -62,7 +62,7 @@
 
 - name: "Dr Ram Prakash Galwa"
   role: "Past President"
-  photo: "/executives/Dr-Ram-Prakash-Galwa.jpg"
+  photo: "/assets/images/team/Dr-Ram-Prakash-Galwa.jpg"
   bio: "Dr. Galwa is a dedicated member and Past President of the Indo-Canadian community in Fredericton."
   email: "NA"
   linkedin: ""
