@@ -44,6 +44,17 @@
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
 
+- title: "AIC Tax Return Camp 2026"
+  date: "2026-04-11"
+  time: "09:00 AM – 5:00 PM"
+  location: "28 Saunders Street, Fredericton, NB E3B 1N1, Room#138"
+  description: "AIC is organizing a tax return camp for the community. Volunteers will be available to help you file your tax returns."
+  category: "Community"
+  emoji: "🤝"
+  featured: false
+  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
+  image: ""
+
 - title: "Classical Indian Dance Workshop"
   date: "2026-05-10"
   time: "11:00 AM – 3:00 PM"
