@@ -33,6 +33,17 @@
   register_url: "https://forms.gle/NMHD5SfpKbzknsgm6"
   image: ""
 
+  - title: "Understanding Education System in Canada"
+  date: "2026-03-27"
+  time: "6:00 PM – 8:00 PM"
+  location: "28 Saunders Street Fredericton, Room# 141"
+  description: "Understand the Canadian education system, Explore how cultural pride supports students' confidence and success, Learn about available supports for parents and students"
+  category: "Education"
+  emoji: "🎓"
+  featured: true
+  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
+  image: ""
+
 - title: "Newcomers Welcome Orientation"
   date: "2026-04-05"
   time: "10:00 AM – 1:00 PM"
