@@ -80,3 +80,15 @@
     - "Theme: A Thousand Lights"
     - "Live Bollywood band performance"
   image: "/assets/images/past_events/Diwali-mela-festival.jpg"
+
+- title: "Understanding Education System in Canada"
+  date: "2026-03-27"
+  location: "28 Saunders Street Fredericton, Room# 141"
+  category: "Education"
+  emoji: "🎓"
+  attendees: 30
+  highlights:
+    - "Understand the Canadian education system"
+    - "Explore how cultural pride supports students' confidence and success"
+    - "Learn about available supports for parents and students"
+  image: "/assets/images/past_events/Understanding_Education_System_in_Canada.jpg"
