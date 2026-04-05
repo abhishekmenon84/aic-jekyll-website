@@ -6,6 +6,28 @@
 # highlights: short bullet points of what made it special (shown in gallery)
 # ─────────────────────────────────────────────────────────────────────────────
 
+- title: "Movie Marathon 2026 #1"
+  date: "2026-04-04"
+  location: "Fredericton, NB"
+  highlights: "11:00 am - 2:00 pm: 83 (2021)
+                2:30 pm - 5:00 pm: Hellaro (2019)
+                5:30 pm - 8:30 pm: Thondimuthalum Driksakshiyum (2017)"
+  category: "Cultural"
+  emoji: "🎥"
+  attendees: 100
+  image: "/assets/images/past_events/Movie_Marathon_2026_1.jpg"
+
+- title: "Movie Marathon 2026 #2"
+  date: "2026-04-05"
+  location: "Fredericton, NB"
+  highlights: "11:00 am - 2:00 pm: Jai Bhim (2021)
+                2:30 pm - 5:00 pm: Zindagi Na Milegi Dobara (2011)
+                5:30 pm - 8:30 pm: Vikram (2022)"
+  category: "Cultural"
+  emoji: "🎥"
+  attendees: 100
+  image: "/assets/images/past_events/Movie_Marathon_2026_2.jpg"
+
 - title: "Meeting with Acting Consul General Mr. Kapidhwaja Pratap Singh 2025"
   date: "2025-11-01"
   location: "Issac Way, Fredericton, NB"

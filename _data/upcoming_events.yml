@@ -7,32 +7,6 @@
 # register_url: link to your Google Form or Eventbrite
 # ─────────────────────────────────────────────────────────────────────────────
 
-- title: "Movie Marathon 2026 #1"
-  date: "2026-04-04"
-  time: "10:00 AM – 09:00 PM"
-  location: "Fredericton, NB"
-  description: "11:00 am - 2:00 pm: Hindi Movie 83 (2021)
-                2:30 pm - 5:00 pm: Gujarati Movie Hellaro (2019)
-                5:30 pm - 8:30 pm: Malayalam Movie Thondimuthalum Driksakshiyum (2017)"
-  category: "Cultural"
-  emoji: "🎥"
-  featured: true
-  register_url: "https://forms.gle/NMHD5SfpKbzknsgm6"
-  image: ""
-
-- title: "Movie Marathon 2026 #2"
-  date: "2026-04-05"
-  time: "10:00 AM – 09:00 PM"
-  location: "Fredericton, NB"
-  description: "11:00 am - 2:00 pm: Tamil Movie Jai Bhim (2021)
-                2:30 pm - 5:00 pm: Hindi Movie Zindagi Na Milegi Dobara (2011)
-                5:30 pm - 8:30 pm: Tamil Movie Vikram (2022)"
-  category: "Cultural"
-  emoji: "🎥"
-  featured: true
-  register_url: "https://forms.gle/NMHD5SfpKbzknsgm6"
-  image: ""
-
 - title: "Friendly Soccer Tournament"
   date: "2026-05-30"
   time: "TBD"
@@ -41,8 +15,19 @@
   category: "Sports"
   emoji: "⚽"
   featured: true
-  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
+  register_url: "https://forms.gle/8GJJwedFfr86EY517"
   image: "/assets/images/upcoming_events/Friendly_Soccer_Tournament.jpg"
+
+- title: "Friendly Cricket Tournament"
+  date: "2026-06-13"
+  time: "TBD"
+  location: "TBD"
+  description: "Association of Indo Canadian are taking lead in organization of Friendly Cricket Tournament with other Associations (male and/or female teams) on Saturday, June 13`, 2026."
+  category: "Sports"
+  emoji: "🏏"
+  featured: true
+  register_url: "https://forms.gle/KRrByXUQwnJmnsa59"
+  image: "/assets/images/upcoming_events/Friendly_Cricket_Tournament.jpg"
 
 - title: "Newcomers Welcome Orientation"
   date: "2026-04-05"
@@ -84,7 +69,7 @@
   description: "A family-friendly picnic celebrating our dual heritage — proudly Canadian, proudly Indian. Expect fun games, music and amazing company"
   category: "Community"
   emoji: "🍁"
-  featured: true
+  featured: false
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
 
@@ -106,6 +91,6 @@
   description: "Celebrate the Festival of Lights with stunning dance performances, traditional cuisine, a cultural show, and a spectacular light display. Black-tie optional."
   category: "Gala"
   emoji: "🪔"
-  featured: true
+  featured: false
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
