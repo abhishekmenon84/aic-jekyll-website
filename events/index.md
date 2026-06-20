@@ -66,7 +66,12 @@ permalink: /events/
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {% assign sorted_past = site.data.past_events | sort: "date" | reverse %}
       {% for ev in sorted_past %}
-      <div class="past-card reveal">
+      <div class="past-card reveal overflow-hidden">
+        {% if ev.image and ev.image != "" %}
+        <div class="h-48 -mx-6 -mt-6 mb-5 overflow-hidden">
+          <img src="{{ ev.image | relative_url }}" alt="{{ ev.title }}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+        </div>
+        {% endif %}
         <div class="flex items-start justify-between mb-3">
           <span class="text-4xl">{{ ev.emoji | default: "📅" }}</span>
           <span class="event-cat cat-{{ ev.category }} inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase">{{ ev.category }}</span>

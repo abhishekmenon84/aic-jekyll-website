@@ -7,61 +7,6 @@
 # register_url: link to your Google Form or Eventbrite
 # ─────────────────────────────────────────────────────────────────────────────
 
-- title: "Friendly Soccer Tournament"
-  date: "2026-05-30"
-  time: "TBD"
-  location: "TBD"
-  description: "Association of Indo Canadian are participating in the Friendly Soccer Tournament with other Associations (male and/or female teams) on Saturday, May 30, 2026."
-  category: "Sports"
-  emoji: "⚽"
-  featured: true
-  register_url: "https://forms.gle/8GJJwedFfr86EY517"
-  image: "/assets/images/upcoming_events/Friendly_Soccer_Tournament.jpg"
-
-- title: "Friendly Cricket Tournament"
-  date: "2026-06-13"
-  time: "TBD"
-  location: "TBD"
-  description: "Association of Indo Canadian are taking lead in organization of Friendly Cricket Tournament with other Associations (male and/or female teams) on Saturday, June 13`, 2026."
-  category: "Sports"
-  emoji: "🏏"
-  featured: true
-  register_url: "https://forms.gle/KRrByXUQwnJmnsa59"
-  image: "/assets/images/upcoming_events/Friendly_Cricket_Tournament.jpg"
-
-- title: "Newcomers Welcome Orientation"
-  date: "2026-04-05"
-  time: "10:00 AM – 1:00 PM"
-  location: "Fredericton Public Library, NB"
-  description: "A warm welcome session for new Indo-Canadian arrivals. Learn about local resources, settlement services, healthcare, schools, and connect with our growing community."
-  category: "Community"
-  emoji: "🤝"
-  featured: false
-  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
-  image: ""
-
-- title: "AIC Tax Return Camp 2026"
-  date: "2026-04-11"
-  time: "09:00 AM – 5:00 PM"
-  location: "28 Saunders Street, Fredericton, NB E3B 1N1, Room#138"
-  description: "AIC is organizing a tax return camp for the community. Volunteers will be available to help you file your tax returns."
-  category: "Community"
-  emoji: "🤝"
-  featured: true
-  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
-  image: ""
-
-- title: "Classical Indian Dance Workshop"
-  date: "2026-05-10"
-  time: "11:00 AM – 3:00 PM"
-  location: "AIC Community Hall, Fredericton"
-  description: "An interactive Bharatanatyam and Kathak workshop for all ages. No experience required — just bring your enthusiasm and comfortable clothing!"
-  category: "Arts"
-  emoji: "💃"
-  featured: false
-  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
-  image: ""
-
 - title: "Canada Day Indo-Canadian Family Picnic"
   date: "2026-07-01"
   time: "12:00 PM – 11:00 PM"
@@ -69,7 +14,7 @@
   description: "A family-friendly picnic celebrating our dual heritage — proudly Canadian, proudly Indian. Expect fun games, music and amazing company"
   category: "Community"
   emoji: "🍁"
-  featured: false
+  featured: true
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
 
@@ -86,7 +31,7 @@
 
 - title: "Diwali Night Gala 2026"
   date: "2026-11-08"
-  time: "6:00 PM – 11:00 PM"
+  time: "06:00 PM – 11:00 PM"
   location: "TBD, Fredericton"
   description: "Celebrate the Festival of Lights with stunning dance performances, traditional cuisine, a cultural show, and a spectacular light display. Black-tie optional."
   category: "Gala"
@@ -94,3 +39,14 @@
   featured: false
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: ""
+
+- title: "Mela Melna Da - Rupinder Handa Live in Fredericton"
+  date: "2026-08-17"
+  time: "05:00 PM – 10:00 PM"
+  location: "NBEX The New Brunswick Provincial ExhibitionFredericton, NB"
+  description: "Teeyan da Mela"
+  category: "Community"
+  emoji: "🎤"
+  featured: true
+  register_url: "https://www.eventbrite.ca/e/mela-melna-da-rupinder-handa-live-in-fredericton-teeyan-da-mela-tickets-1990572849979"
+  image: "/assets/images/upcoming_events/Rupinder-Handa-Live.jpeg"
