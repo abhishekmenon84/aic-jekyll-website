@@ -195,3 +195,10 @@ bundle exec jekyll serve
 
 *Made with ❤️ for the Indo-Canadian community in Fredericton, NB*  
 *🇮🇳 🤝 🇨🇦*
+
+
+Option 1: You can run 
+bundle exec jekyll serve 
+on your machine and navigate to 
+http://localhost:4000 
+to visually inspect the rendered event images.

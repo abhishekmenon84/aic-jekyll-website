@@ -16,21 +16,21 @@
   emoji: "🍁"
   featured: true
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
-  image: ""
+  image: "/assets/images/upcoming_events/Canada-Day-Picnic-Fredericton-2026.jpeg"
 
 - title: "Youth Leadership Summit 2026"
   date: "2026-08-15"
-  time: "9:00 AM – 4:00 PM"
+  time: "11:00 AM – 12:30 PM"
   location: "University of New Brunswick, Fredericton"
   description: "Independence Day special — a full-day summit for Indo-Canadian youth aged 14–30. Features guest speakers, mentorship sessions, career panels, and networking."
   category: "Education"
   emoji: "🎓"
   featured: false
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
-  image: ""
+  image: "/assets/images/upcoming_events/Youth-Leadership-Summit.jpeg"
 
 - title: "Diwali Night Gala 2026"
-  date: "2026-11-08"
+  date: "2026-11-14"
   time: "06:00 PM – 11:00 PM"
   location: "TBD, Fredericton"
   description: "Celebrate the Festival of Lights with stunning dance performances, traditional cuisine, a cultural show, and a spectacular light display. Black-tie optional."
@@ -38,7 +38,7 @@
   emoji: "🪔"
   featured: false
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
-  image: ""
+  image: "/assets/images/upcoming_events/Diwali-Gala-2026.jpeg"
 
 - title: "Mela Melna Da - Rupinder Handa Live in Fredericton"
   date: "2026-08-17"
