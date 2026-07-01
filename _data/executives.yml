@@ -9,9 +9,18 @@
 - name: "Abhishek Menon"
   role: "President"
   photo: "/assets/images/team/Abhishek-Menon.jpg"
-  bio: "Mr. Abhishek is the President of the Indo-Canadian Association of Fredericton and Self-Employed - iHomeMap.com, iFlowRead.com, REALTORS® - Remax East Coast Elite Realty, President - Association Of Indo-Canadian Fredericton"
+  bio: "Mr. Abhishek is the President of the Indo-Canadian Association of Fredericton and Founder of iHomeMap.com, iFlowRead.com, and REALTOR® at Remax East Coast Elite Realty Fredericton"
   email: "Abhi@MenonRealty.ca"
   linkedin: "https://www.linkedin.com/in/abhishekmenon84/"
+  term: "2025–2027"
+  active: true
+
+- name: "CA Varsha Ashar"
+  role: "Secretary"
+  photo: "/assets/images/team/Varsha-Ashar.jpg"
+  bio: "Ms Varsha Ashar is Secretary of the Indo-Canadian community in Fredericton and Chartered Accountant, CS Executive, M.Com (Account & Finance)"
+  email: "NA"
+  linkedin: "https://www.linkedin.com/in/ca-varsha-ashar-35525566/"
   term: "2025–2027"
   active: true
 
@@ -42,20 +51,11 @@
   term: "2025–2027"
   active: true
 
-- name: "CA Varsha Ashar"
-  role: "Treasurer"
-  photo: "/assets/images/team/CA-Varsha-Ashar.jpg"
-  bio: "Ms Varsha Ashar is Treasurer of the Indo-Canadian community in Fredericton and Qualified Chartered Accountant- Tax Compliance- Audit-Risk Assessment"
-  email: "bsgupta.canada@gmail.com"
-  linkedin: "https://www.linkedin.com/in/banwarilal-gupta-3004007/"
-  term: "2025–2027"
-  active: true
-
 - name: "Manisha Verma"
   role: "Board Of Director"
   photo: "/assets/images/team/Manisha-Verma.jpg"
-  bio: "Manisha is a dedicated member, Board-Of-Director of the Indo-Canadian Association of Fredericton and Secretatry Of Multicultural Association Of Fredericton and Dedicated Teacher at Anglophone School District West"
-  email: "indo.canadians@gmail.com"
+  bio: "Manisha is a dedicated member, Board-Of-Director of the Indo-Canadian Association of Fredericton and Secretatry Of Multicultural Association Of Fredericton and Dedicated Educational Assistant at Anglophone School District West"
+  email: "vmanisha86@gmail.com"
   linkedin: ""
   term: "2025–2027"
   active: true
