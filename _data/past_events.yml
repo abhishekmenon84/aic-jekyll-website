@@ -16,6 +16,8 @@
   emoji: "🎥"
   attendees: 100
   image: "/assets/images/past_events/Movie_Marathon_2026_1.jpg"
+  gallery:
+  - "/assets/images/past_events/Movie_Marathon_2026_1.jpg"
 
 - title: "Movie Marathon 2026 #2"
   date: "2026-04-05"
@@ -27,6 +29,8 @@
   emoji: "🎥"
   attendees: 100
   image: "/assets/images/past_events/Movie_Marathon_2026_2.jpg"
+  gallery:
+  - "/assets/images/past_events/Movie_Marathon_2026_2.jpg"
 
 - title: "Meeting with Acting Consul General Mr. Kapidhwaja Pratap Singh 2025"
   date: "2025-11-01"
@@ -48,6 +52,8 @@
     - "BLS is blacklisted for the next 2 years"
     - "If we have a large number of applications, then the Consulate can put a camp in Fredericton or a neighboring city."
   image: "/assets/images/past_events/Meeting_with_Acting_Consul_General.jpg"
+  gallery:
+  - "/assets/images/past_events/Meeting_with_Acting_Consul_General.jpg"
 
 - title: "77th Republic Day Celebration 2026"
   date: "2026-01-31"
@@ -62,6 +68,8 @@
     - "To our charismatic MC, our dedicated event helpers, and the tireless AIC Team, this night wouldn't have been possible without your behind-the-scenes magic."
     - "Thank you to everyone who joined us. Seeing such a diverse crowd celebrate together is what the AIC is all about."
   image: "/assets/images/past_events/Republic_Day_Celeb_2026.jpg"
+  gallery:
+  - "/assets/images/past_events/Republic_Day_Celeb_2026.jpg"
 
 - title: "New Year’s Eve Gala 2025"
   date: "2025-12-31"
@@ -102,6 +110,8 @@
     - "Theme: A Thousand Lights"
     - "Live Bollywood band performance"
   image: "/assets/images/past_events/Diwali-mela-festival.jpg"
+  gallery:
+    - "/assets/images/past_events/Diwali-mela-festival.jpg"
 
 - title: "Understanding Education System in Canada"
   date: "2026-03-27"
@@ -113,6 +123,8 @@
     - "Explore how cultural pride supports students' confidence and success"
     - "Learn about available supports for parents and students"
   image: "/assets/images/past_events/Understanding_Education_System_in_Canada.jpg"
+  gallery:
+    - "/assets/images/past_events/Understanding_Education_System_in_Canada.jpg"
 
 - title: "Friendly Soccer Tournament"
   date: "2026-05-30"
@@ -122,7 +134,8 @@
   highlights:
     - "Friendly Soccer Tournament"
   image: "/assets/images/past_events/AIC-Indian-Soccer-Team.jpeg"
-
+  gallery:
+    - "/assets/images/past_events/AIC-Indian-Soccer-Team.jpeg"
 
 - title: "Friendly Cricket Tournament"
   date: "2026-06-13"
@@ -131,14 +144,20 @@
   emoji: "🏏"
   highlights:
     - "Friendly Cricket Tournament"
-  image: "/assets/images/past_events/AIC-Indian-Cricket-Team.jpeg"
+  image: "/assets/images/past_events/Mcaf-AIC-Cricket2026/AIC-Indian-Cricket-Team.jpeg"
+  gallery:
+    - "/assets/images/past_events/Mcaf-AIC-Cricket2026/AIC-Indian-Cricket-Team-1.jpg"
+    - "/assets/images/past_events/Mcaf-AIC-Cricket2026/AIC-Indian-Cricket-Team-2.jpeg"
+    - "/assets/images/past_events/Mcaf-AIC-Cricket2026/AIC-Indian-Cricket-Team-3.jpeg"
+    - "/assets/images/past_events/Mcaf-AIC-Cricket2026/AIC-Indian-Cricket-Team-4.jpeg"
+    - "/assets/images/past_events/Mcaf-AIC-Cricket2026/AIC-Indian-Cricket-Team-5.jpeg"
+    - "/assets/images/past_events/Mcaf-AIC-Cricket2026/AIC-Indian-Cricket-Team-6.jpeg"
 
 - title: "Newcomers Welcome Orientation"
   date: "2026-04-05"
   location: "Fredericton Public Library, NB"
   category: "Community"
   emoji: "🤝"
-  featured: false
   image: ""
 
 - title: "AIC Tax Return Camp 2026"
@@ -147,6 +166,8 @@
   category: "Community"
   emoji: "🧮"
   image: "/assets/images/past_events/AIC-Tax-Clinic-2026.jpeg"
+  gallery:
+    - "/assets/images/past_events/AIC-Tax-Clinic-2026.jpeg"
   highlights:
     - "AIC Tax Return Camp 2026"
 
@@ -162,6 +183,8 @@
   category: "Community"
   emoji: "🤝"
   image: "/assets/images/past_events/Meet_and_Greet_with_Indian_Consul_General_2026.jpg"
+  gallery:
+    - "/assets/images/past_events/Meet_and_Greet_with_Indian_Consul_General_2026.jpg"
   attendees: 40
   highlights:
     - "Meet and Greet with Indian Consul General 2026"
@@ -171,7 +194,14 @@
   location: "28 Saunders Street, Fredericton, NB"
   category: "Community"
   emoji: "🧘"
-  image: "/assets/images/past_events/International_Day_of_Yoga_2026.jpg"
+  image: "/assets/images/past_events/International-Yoga-day-2026/International-Yoga-day-2026-1.jpeg"
+  gallery:
+    - "/assets/images/past_events/International-Yoga-day-2026/International-Yoga-day-2026-1.jpeg"
+    - "/assets/images/past_events/International-Yoga-day-2026/International-Yoga-day-2026-2.jpeg"
+    - "/assets/images/past_events/International-Yoga-day-2026/International-Yoga-day-2026-3.jpeg"
+    - "/assets/images/past_events/International-Yoga-day-2026/International-Yoga-day-2026-4.jpeg"
+    - "/assets/images/past_events/International-Yoga-day-2026/International-Yoga-day-2026-5.jpeg"
+    - "/assets/images/past_events/International-Yoga-day-2026/International-Yoga-day-2026-6.jpeg"
   attendees: 25
   highlights:
     - "International Day of Yoga 2026"
@@ -182,6 +212,17 @@
   category: "Community"
   emoji: "🧮"
   image: "/assets/images/past_events/Distributing_Energy_Savings_Kits_2026.jpg"
+  gallery:
+    - "/assets/images/past_events/Distributing_Energy_Savings_Kits_2026.jpg"
   attendees: 50
   highlights:
     - "Distributing Energy Savings Kits 2026"
+
+- title: "Canada Day Indo-Canadian Family Picnic"
+  date: "2026-07-01"
+  location: "Office Square, Fredericton, NB"
+  category: "Community"
+  emoji: "🍁"
+  image: "/assets/images/past_events/Canada-Day-Picnic-Fredericton-2026.jpeg"
+  gallery:
+    - "/assets/images/past_events/Canada-Day-Picnic-Fredericton-2026.jpeg"

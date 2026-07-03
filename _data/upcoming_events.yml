@@ -7,17 +7,6 @@
 # register_url: link to your Google Form or Eventbrite
 # ─────────────────────────────────────────────────────────────────────────────
 
-- title: "Canada Day Indo-Canadian Family Picnic"
-  date: "2026-07-01"
-  time: "12:00 PM – 11:00 PM"
-  location: "Office Square, Fredericton, NB"
-  description: "A family-friendly picnic celebrating our dual heritage — proudly Canadian, proudly Indian. Expect fun games, music and amazing company"
-  category: "Community"
-  emoji: "🍁"
-  featured: true
-  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
-  image: "/assets/images/upcoming_events/Canada-Day-Picnic-Fredericton-2026.jpeg"
-
 - title: "Indian Independence Day Celebration"
   date: "2026-08-15"
   time: "10:00 AM – 11:30 AM"

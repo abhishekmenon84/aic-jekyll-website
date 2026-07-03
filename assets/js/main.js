@@ -220,6 +220,115 @@ function closeExecutiveModal(e) {
 }
 window.closeExecutiveModal = closeExecutiveModal;
 
+/* ── Gallery Lightbox ── */
+let _galleryImages  = [];
+let _galleryIndex   = 0;
+let _galleryTitle   = '';
+
+function openGalleryModal(images, startIndex, title) {
+  _galleryImages = images;
+  _galleryIndex  = startIndex || 0;
+  _galleryTitle  = title || '';
+  const modal = document.getElementById('gallery-modal');
+  if (!modal) return;
+
+  _galleryRender();
+  _galleryBuildThumbs();
+  modal.classList.remove('hidden');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // keyboard navigation
+  document.addEventListener('keydown', _galleryKeyHandler);
+}
+window.openGalleryModal = openGalleryModal;
+
+function _galleryRender() {
+  const img     = document.getElementById('gallery-img');
+  const counter = document.getElementById('gallery-counter');
+  const title   = document.getElementById('gallery-title');
+  const prev    = document.getElementById('gallery-prev');
+  const next    = document.getElementById('gallery-next');
+
+  if (img) {
+    img.classList.add('fade');
+    setTimeout(() => {
+      img.src = _galleryImages[_galleryIndex];
+      img.alt = _galleryTitle + ' photo ' + (_galleryIndex + 1);
+      img.classList.remove('fade');
+    }, 160);
+  }
+  if (counter) counter.textContent = `${_galleryIndex + 1} / ${_galleryImages.length}`;
+  if (title)   title.textContent   = _galleryTitle;
+
+  // hide arrows when only 1 image
+  const single = _galleryImages.length <= 1;
+  if (prev) prev.style.display = single ? 'none' : '';
+  if (next) next.style.display = single ? 'none' : '';
+
+  // update active thumb
+  document.querySelectorAll('.gallery-thumb').forEach((t, i) => {
+    t.classList.toggle('active', i === _galleryIndex);
+  });
+}
+
+function _galleryBuildThumbs() {
+  const strip = document.getElementById('gallery-thumbs');
+  if (!strip) return;
+  strip.innerHTML = '';
+  _galleryImages.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'gallery-thumb' + (i === _galleryIndex ? ' active' : '');
+    img.onclick = () => { _galleryIndex = i; _galleryRender(); };
+    strip.appendChild(img);
+  });
+}
+
+function galleryNav(dir) {
+  _galleryIndex = (_galleryIndex + dir + _galleryImages.length) % _galleryImages.length;
+  _galleryRender();
+  // scroll active thumb into view
+  const thumbs = document.querySelectorAll('.gallery-thumb');
+  if (thumbs[_galleryIndex]) {
+    thumbs[_galleryIndex].scrollIntoView({ inline: 'center', behavior: 'smooth' });
+  }
+}
+window.galleryNav = galleryNav;
+
+function _galleryKeyHandler(e) {
+  if (e.key === 'ArrowLeft')  galleryNav(-1);
+  if (e.key === 'ArrowRight') galleryNav(1);
+  if (e.key === 'Escape')     closeGalleryModal();
+}
+
+function closeGalleryModal(e) {
+  if (e && e.target !== document.getElementById('gallery-modal')) return;
+  const modal = document.getElementById('gallery-modal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  modal.classList.add('hidden');
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', _galleryKeyHandler);
+}
+window.closeGalleryModal = closeGalleryModal;
+
+function initGalleryModal() {
+  // Wire up "📸 Photos" buttons
+  document.querySelectorAll('[data-gallery]').forEach(card => {
+    let images = [];
+    try { images = JSON.parse(card.getAttribute('data-gallery')); } catch(e) {}
+    if (!images.length) return;
+
+    const title = card.getAttribute('data-gallery-title') || '';
+    const btn   = card.querySelector('.gallery-btn');
+    const cover = card.querySelector('.gallery-cover');
+
+    if (btn)   btn.addEventListener('click',   (e) => { e.stopPropagation(); openGalleryModal(images, 0, title); });
+    if (cover) cover.addEventListener('click', ()  => { openGalleryModal(images, 0, title); });
+  });
+}
+
 /* ── Init all ── */
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
@@ -230,4 +339,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   initSmoothScroll();
   initExecutiveModal();
+  initGalleryModal();
 });

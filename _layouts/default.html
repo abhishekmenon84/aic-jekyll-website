@@ -73,6 +73,32 @@
     </div>
   </div>
 
+  <!-- Photo Gallery Lightbox -->
+  <div id="gallery-modal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-black/90 backdrop-blur-sm" onclick="closeGalleryModal(event)">
+    <!-- Close -->
+    <button id="gallery-close" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white text-xl transition-all" onclick="closeGalleryModal()">✕</button>
+
+    <!-- Counter badge -->
+    <div id="gallery-counter" class="absolute top-5 left-1/2 -translate-x-1/2 bg-black/50 text-white text-xs font-semibold px-4 py-1.5 rounded-full tracking-wider"></div>
+
+    <!-- Event title -->
+    <div id="gallery-title" class="absolute top-16 left-1/2 -translate-x-1/2 text-white/70 text-sm font-medium whitespace-nowrap"></div>
+
+    <!-- Left arrow -->
+    <button id="gallery-prev" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 flex items-center justify-center text-white text-2xl transition-all" onclick="galleryNav(-1)">‹</button>
+
+    <!-- Main image area -->
+    <div class="flex items-center justify-center w-full h-full px-16 py-24" onclick="event.stopPropagation()">
+      <img id="gallery-img" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-opacity duration-200" style="max-height: calc(100vh - 160px);" />
+    </div>
+
+    <!-- Right arrow -->
+    <button id="gallery-next" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 flex items-center justify-center text-white text-2xl transition-all" onclick="galleryNav(1)">›</button>
+
+    <!-- Thumbnail strip -->
+    <div id="gallery-thumbs" class="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[90vw] px-4 py-2" onclick="event.stopPropagation()"></div>
+  </div>
+
   <!-- Site JS -->
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
   {% if page.extra_js %}{{ page.extra_js }}{% endif %}

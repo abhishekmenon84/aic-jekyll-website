@@ -29,15 +29,43 @@ permalink: /events/past/
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {% assign sorted_past = site.data.past_events | sort: "date" | reverse %}
       {% for ev in sorted_past %}
-      <div class="past-card reveal overflow-hidden">
+        {% comment %} Build JSON array of gallery images {% endcomment %}
+        {% if ev.gallery and ev.gallery.size > 0 %}
+          {% assign gallery_json = "[" %}
+          {% for img_path in ev.gallery %}
+            {% assign escaped = img_path | relative_url | prepend: '"' | append: '"' %}
+            {% assign gallery_json = gallery_json | append: escaped %}
+            {% unless forloop.last %}{% assign gallery_json = gallery_json | append: "," %}{% endunless %}
+          {% endfor %}
+          {% assign gallery_json = gallery_json | append: "]" %}
+        {% else %}
+          {% assign gallery_json = "[]" %}
+        {% endif %}
+      <div class="past-card reveal overflow-hidden"
+           {% if ev.gallery and ev.gallery.size > 0 %}
+           data-gallery="{{ gallery_json | escape }}"
+           data-gallery-title="{{ ev.title | escape }}"
+           {% endif %}>
         {% if ev.image and ev.image != "" %}
-        <div class="h-48 -mx-6 -mt-6 mb-5 overflow-hidden">
+        <div class="h-48 -mx-6 -mt-6 mb-5 overflow-hidden relative{% if ev.gallery and ev.gallery.size > 0 %} gallery-cover cursor-pointer{% endif %}">
           <img src="{{ ev.image | relative_url }}" alt="{{ ev.title }}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+          {% if ev.gallery and ev.gallery.size > 0 %}
+          <div class="absolute inset-0 bg-black/20 flex items-end justify-start p-3 opacity-0 hover:opacity-100 transition-opacity duration-200">
+            <span class="text-white text-xs font-semibold bg-black/50 px-2 py-1 rounded-full">📸 Click to view photos</span>
+          </div>
+          {% endif %}
         </div>
         {% endif %}
         <div class="flex items-start justify-between mb-3">
           <span class="text-4xl">{{ ev.emoji | default: "📅" }}</span>
-          <span class="event-cat cat-{{ ev.category }} inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase">{{ ev.category }}</span>
+          <div class="flex items-center gap-2 flex-shrink-0 ml-2">
+            {% if ev.gallery and ev.gallery.size > 0 %}
+            <button class="gallery-btn" type="button">
+              📸 {{ ev.gallery.size }} Photo{% if ev.gallery.size != 1 %}s{% endif %}
+            </button>
+            {% endif %}
+            <span class="event-cat cat-{{ ev.category }} inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase">{{ ev.category }}</span>
+          </div>
         </div>
         <h3 class="font-bold text-xl mb-1" style="font-family:'Playfair Display',serif;">{{ ev.title }}</h3>
         <p class="text-stone-400 text-sm mb-3">{{ ev.date | date: "%B %-d, %Y" }} · {{ ev.location }}</p>
