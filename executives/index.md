@@ -32,30 +32,35 @@ permalink: /executives/
 
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {% for exec in active_execs %}
-      <div class="exec-card reveal flex flex-col justify-between">
+        {% if exec.photo and exec.photo != "" %}
+          {% assign photo_filename = exec.photo | split: "/" | last %}
+          {% assign profile_path = "/assets/images/team/team-profile/Profile-" | append: photo_filename %}
+          {% assign has_profile = false %}
+          {% for static_file in site.static_files %}
+            {% if static_file.path == profile_path %}
+              {% assign has_profile = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% if has_profile %}
+            {% assign modal_photo = profile_path | relative_url %}
+          {% else %}
+            {% assign modal_photo = exec.photo | relative_url %}
+          {% endif %}
+        {% else %}
+          {% assign modal_photo = "" %}
+        {% endif %}
+      <div class="exec-card reveal flex flex-col justify-between cursor-pointer"
+           data-name="{{ exec.name | escape }}"
+           data-role="{{ exec.role | escape }}"
+           data-photo="{{ modal_photo | escape }}"
+           data-bio="{{ exec.bio | escape }}"
+           data-email="{{ exec.email | escape }}"
+           data-linkedin="{{ exec.linkedin | escape }}"
+           data-term="{{ exec.term | escape }}">
         <div>
           {% if exec.photo and exec.photo != "" %}
-            {% assign photo_filename = exec.photo | split: "/" | last %}
-            {% assign profile_path = "/assets/images/team/team-profile/Profile-" | append: photo_filename %}
-            
-            {% assign has_profile = false %}
-            {% for static_file in site.static_files %}
-              {% if static_file.path == profile_path %}
-                {% assign has_profile = true %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
-
-            {% if has_profile %}
-              <a href="{{ profile_path | relative_url }}" target="_blank" title="View Profile" class="group block relative w-20 h-20 mx-auto mb-4 cursor-pointer overflow-hidden rounded-full">
-                <img src="{{ exec.photo | relative_url }}" alt="{{ exec.name }}" class="exec-avatar m-0 transition-transform duration-300 group-hover:scale-110" style="margin: 0; width: 100%; height: 100%;" />
-                <div class="absolute inset-0 bg-black/45 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span class="text-white text-[10px] font-bold tracking-wider uppercase">Profile</span>
-                </div>
-              </a>
-            {% else %}
-              <img src="{{ exec.photo | relative_url }}" alt="{{ exec.name }}" class="exec-avatar" />
-            {% endif %}
+            <img src="{{ exec.photo | relative_url }}" alt="{{ exec.name }}" class="exec-avatar" />
           {% else %}
             <div class="exec-initials">{{ exec.name | split: " " | map: "first" | join: "" | upcase | truncate: 2, "" }}</div>
           {% endif %}
@@ -67,7 +72,7 @@ permalink: /executives/
           {% endif %}
         </div>
 
-        <div class="flex items-center justify-center gap-3 mt-4 pt-3 border-t border-stone-100">
+        <div class="flex items-center justify-center gap-3 mt-4 pt-3 border-t border-stone-100" onclick="event.stopPropagation()">
           {% if exec.email and exec.email != "" and exec.email != "NA" %}
           <a href="mailto:{{ exec.email }}"
              class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-stone-200 text-stone-500 hover:border-orange-400 hover:text-orange-500 hover:bg-orange-50/50 transition-all"

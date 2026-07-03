@@ -138,7 +138,32 @@ description: "AIC Fredericton — Fostering a vibrant, inclusive, and engaged In
     <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
       {% assign active_execs = site.data.executives | where: "active", true %}
       {% for exec in active_execs limit:4 %}
-      <div class="exec-card reveal">
+        {% if exec.photo and exec.photo != "" %}
+          {% assign photo_filename = exec.photo | split: "/" | last %}
+          {% assign profile_path = "/assets/images/team/team-profile/Profile-" | append: photo_filename %}
+          {% assign has_profile = false %}
+          {% for static_file in site.static_files %}
+            {% if static_file.path == profile_path %}
+              {% assign has_profile = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% if has_profile %}
+            {% assign modal_photo = profile_path | relative_url %}
+          {% else %}
+            {% assign modal_photo = exec.photo | relative_url %}
+          {% endif %}
+        {% else %}
+          {% assign modal_photo = "" %}
+        {% endif %}
+      <div class="exec-card reveal cursor-pointer"
+           data-name="{{ exec.name | escape }}"
+           data-role="{{ exec.role | escape }}"
+           data-photo="{{ modal_photo | escape }}"
+           data-bio="{{ exec.bio | escape }}"
+           data-email="{{ exec.email | escape }}"
+           data-linkedin="{{ exec.linkedin | escape }}"
+           data-term="{{ exec.term | escape }}">
         {% if exec.photo and exec.photo != "" %}
           <img src="{{ exec.photo | relative_url }}" alt="{{ exec.name }}" class="exec-avatar" />
         {% else %}

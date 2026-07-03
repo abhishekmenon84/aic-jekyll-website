@@ -129,6 +129,97 @@ function initSmoothScroll() {
   });
 }
 
+/* ── Executive Modal ── */
+function initExecutiveModal() {
+  const modal = document.getElementById('exec-modal');
+  if (!modal) return;
+
+  const cards = document.querySelectorAll('.exec-card[data-name]');
+  cards.forEach(card => {
+    card.classList.add('cursor-pointer');
+    card.addEventListener('click', () => {
+      const name = card.getAttribute('data-name');
+      const role = card.getAttribute('data-role');
+      const photo = card.getAttribute('data-photo');
+      const bio = card.getAttribute('data-bio');
+      const email = card.getAttribute('data-email');
+      const linkedin = card.getAttribute('data-linkedin');
+      const term = card.getAttribute('data-term');
+
+      const nameEl = document.getElementById('modal-name');
+      const roleEl = document.getElementById('modal-role');
+      const termEl = document.getElementById('modal-term');
+      const bioEl = document.getElementById('modal-bio');
+      
+      if (nameEl) nameEl.textContent = name;
+      if (roleEl) roleEl.textContent = role;
+      if (termEl) termEl.textContent = `Term: ${term}`;
+      if (bioEl) bioEl.textContent = bio || 'No biography available.';
+
+      const img = document.getElementById('modal-photo');
+      const initials = document.getElementById('modal-initials');
+      const imgLink = document.getElementById('modal-photo-link');
+      if (photo && photo !== '') {
+        if (img) {
+          img.src = photo;
+          img.alt = name;
+          img.classList.remove('hidden');
+        }
+        if (imgLink) {
+          imgLink.href = photo;
+          imgLink.style.display = 'block';
+        }
+        if (initials) initials.classList.add('hidden');
+      } else {
+        if (img) img.classList.add('hidden');
+        if (imgLink) imgLink.style.display = 'none';
+        if (initials) {
+          const initialsText = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+          initials.textContent = initialsText;
+          initials.classList.remove('hidden');
+        }
+      }
+
+      const emailBtn = document.getElementById('modal-email');
+      if (emailBtn) {
+        if (email && email !== '' && email !== 'NA') {
+          emailBtn.href = `mailto:${email}`;
+          emailBtn.style.display = 'inline-flex';
+        } else {
+          emailBtn.style.display = 'none';
+        }
+      }
+
+      const linkedinBtn = document.getElementById('modal-linkedin');
+      if (linkedinBtn) {
+        if (linkedin && linkedin !== '') {
+          linkedinBtn.href = linkedin;
+          linkedinBtn.style.display = 'inline-flex';
+        } else {
+          linkedinBtn.style.display = 'none';
+        }
+      }
+
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.add('open');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    });
+  });
+}
+
+function closeExecutiveModal(e) {
+  const modal = document.getElementById('exec-modal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    modal.classList.add('hidden');
+  }, 300);
+}
+window.closeExecutiveModal = closeExecutiveModal;
+
 /* ── Init all ── */
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
@@ -138,4 +229,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsletter();
   initParticles();
   initSmoothScroll();
+  initExecutiveModal();
 });

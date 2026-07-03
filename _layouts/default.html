@@ -31,6 +31,48 @@
 
   {% include footer.html %}
 
+  <!-- Executive Profile Modal -->
+  <div id="exec-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0" onclick="closeExecutiveModal(event)">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 transition-all duration-300 relative border border-stone-100" onclick="event.stopPropagation()">
+      <!-- Close button -->
+      <button class="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-500 hover:text-charcoal transition-all text-xl" onclick="closeExecutiveModal()">✕</button>
+      
+      <div class="p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start">
+        <!-- Profile Photo / Initials -->
+        <div id="modal-photo-container" class="w-32 h-32 md:w-48 md:h-48 rounded-2xl overflow-hidden flex-shrink-0 border-4 border-saffron/20 shadow-lg relative">
+          <a id="modal-photo-link" href="" target="_blank" rel="noopener noreferrer" class="block w-full h-full">
+            <img id="modal-photo" src="" alt="" class="w-full h-full object-cover" />
+          </a>
+          <div id="modal-initials" class="w-full h-full flex items-center justify-center bg-saffron text-white text-4xl font-bold font-serif hidden"></div>
+        </div>
+        
+        <!-- Details -->
+        <div class="flex-grow text-center md:text-left">
+          <h2 id="modal-name" class="text-3xl font-black text-charcoal font-serif mb-1"></h2>
+          <p id="modal-role" class="text-base font-semibold text-saffron mb-2"></p>
+          <p id="modal-term" class="text-stone-400 text-xs mb-4"></p>
+          
+          <!-- Bio / Short Resume -->
+          <div class="border-t border-stone-100 pt-4 mt-4">
+            <h4 class="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-2">Short Bio / Resume</h4>
+            <p id="modal-bio" class="text-stone-600 text-sm leading-relaxed whitespace-pre-line"></p>
+          </div>
+          
+          <!-- Contact Links -->
+          <div class="flex gap-3 justify-center md:justify-start mt-6 pt-4 border-t border-stone-100">
+            <a id="modal-email" href="" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-200 text-stone-600 hover:border-saffron hover:text-saffron hover:bg-saffron/5 transition-all text-sm">
+              <span>✉</span> Email
+            </a>
+            <a id="modal-linkedin" href="" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-200 text-stone-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50/5 transition-all text-sm">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Site JS -->
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
   {% if page.extra_js %}{{ page.extra_js }}{% endif %}

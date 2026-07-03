@@ -251,3 +251,13 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
 .anim-3 { animation: fadeUp 0.8s 0.4s both; }
 .anim-4 { animation: fadeUp 0.8s 0.55s both; }
 .anim-5 { animation: fadeUp 0.8s 0.7s both; }
+
+/* ── EXECUTIVE MODAL ── */
+#exec-modal.open {
+  display: flex !important;
+  opacity: 1;
+}
+#exec-modal.open > div {
+  transform: scale(1);
+}
+
