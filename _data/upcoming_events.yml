@@ -28,14 +28,3 @@
   featured: true
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: "/assets/images/upcoming_events/Diwali-Gala-2026.jpeg"
-
-- title: "Mela Melna Da - Rupinder Handa Live in Fredericton"
-  date: "2026-07-17"
-  time: "05:00 PM – 10:00 PM"
-  location: "NBEX The New Brunswick Provincial ExhibitionFredericton, NB"
-  description: "Teeyan da Mela"
-  category: "Community"
-  emoji: "🎤"
-  featured: true
-  register_url: "https://www.eventbrite.ca/e/mela-melna-da-rupinder-handa-live-in-fredericton-teeyan-da-mela-tickets-1990572849979"
-  image: "/assets/images/upcoming_events/Rupinder-Handa-Live.jpeg"
