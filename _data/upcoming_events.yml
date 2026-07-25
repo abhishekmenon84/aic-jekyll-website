@@ -7,15 +7,15 @@
 # register_url: link to your Google Form or Eventbrite
 # ─────────────────────────────────────────────────────────────────────────────
 
-- title: "Indian Independence Day Celebration"
+- title: "Indian 80th Independence Day Celebration"
   date: "2026-08-15"
-  time: "10:00 AM – 11:30 AM"
+  time: "09:00 AM"
   location: "Legislative Assembly of New Brunswick, Fredericton"
   description: "Independence Day Flag Hosting at Legislative Assembly of New Brunswick"
   category: "Cultural"
   emoji: "🇮🇳"
   featured: true
-  register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
+  register_url: "https://forms.gle/8tSVAxeoTZJBKS3M6"
   image: "/assets/images/upcoming_events/Indian-Independence-Day.jpeg"
 
 - title: "Diwali Night Gala 2026"
