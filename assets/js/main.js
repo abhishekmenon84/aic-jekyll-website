@@ -366,14 +366,6 @@ function galleryZoomBy(delta, clientX, clientY) {
 }
 window.galleryZoomBy = galleryZoomBy;
 
-function _galleryToggleDblClickZoom(e) {
-  if (_galleryZoom > 1) {
-    _galleryResetZoom();
-  } else {
-    galleryZoomBy(1.5, e.clientX, e.clientY);
-  }
-}
-
 function _galleryInitZoomInteractions() {
   const wrap = document.getElementById('gallery-img-wrap');
   const img  = document.getElementById('gallery-img');
@@ -386,29 +378,36 @@ function _galleryInitZoomInteractions() {
     galleryZoomBy(e.deltaY < 0 ? 0.4 : -0.4, e.clientX, e.clientY);
   }, { passive: false });
 
-  // double-click to zoom
-  img.addEventListener('dblclick', _galleryToggleDblClickZoom);
-
-  // mouse drag pan
-  let dragging = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
+  // click to zoom in/out, drag to pan when zoomed (click = mousedown+mouseup with negligible movement)
+  let pointerDown = false, dragged = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
   img.addEventListener('mousedown', (e) => {
-    if (_galleryZoom <= 1) return;
-    dragging = true;
-    img.classList.add('panning');
+    pointerDown = true;
+    dragged = false;
     startX = e.clientX; startY = e.clientY;
     startPanX = _galleryPanX; startPanY = _galleryPanY;
+    if (_galleryZoom > 1) img.classList.add('panning');
     e.preventDefault();
   });
   window.addEventListener('mousemove', (e) => {
-    if (!dragging) return;
-    _galleryPanX = startPanX + (e.clientX - startX);
-    _galleryPanY = startPanY + (e.clientY - startY);
-    _galleryClampPan();
-    _galleryApplyTransform();
+    if (!pointerDown) return;
+    const dx = e.clientX - startX, dy = e.clientY - startY;
+    if (Math.hypot(dx, dy) > 4) dragged = true;
+    if (_galleryZoom > 1 && dragged) {
+      _galleryPanX = startPanX + dx;
+      _galleryPanY = startPanY + dy;
+      _galleryClampPan();
+      _galleryApplyTransform();
+    }
   });
-  window.addEventListener('mouseup', () => {
-    dragging = false;
+  window.addEventListener('mouseup', (e) => {
+    if (!pointerDown) return;
+    pointerDown = false;
     img.classList.remove('panning');
+    if (!dragged) {
+      // treat as a click: toggle zoom centered on the click point
+      if (_galleryZoom > 1) _galleryResetZoom();
+      else galleryZoomBy(1.5, e.clientX, e.clientY);
+    }
   });
 
   // touch: pinch-zoom + single-finger pan
