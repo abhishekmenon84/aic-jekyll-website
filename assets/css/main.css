@@ -266,10 +266,22 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
   display: flex !important;
 }
 #gallery-modal #gallery-img {
-  transition: opacity 0.18s ease;
+  transition: opacity 0.18s ease, transform 0.15s ease;
+  cursor: zoom-in;
+  touch-action: none;
 }
 #gallery-modal #gallery-img.fade {
   opacity: 0;
+}
+#gallery-modal #gallery-img.zoomed {
+  cursor: grab;
+}
+#gallery-modal #gallery-img.zoomed.panning {
+  cursor: grabbing;
+  transition: opacity 0.18s ease;
+}
+#gallery-img-wrap {
+  touch-action: none;
 }
 .gallery-thumb {
   width: 52px;

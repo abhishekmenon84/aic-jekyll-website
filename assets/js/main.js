@@ -224,6 +224,11 @@ window.closeExecutiveModal = closeExecutiveModal;
 let _galleryImages  = [];
 let _galleryIndex   = 0;
 let _galleryTitle   = '';
+let _galleryZoom    = 1;
+let _galleryPanX    = 0;
+let _galleryPanY    = 0;
+const GALLERY_MIN_ZOOM = 1;
+const GALLERY_MAX_ZOOM = 4;
 
 function openGalleryModal(images, startIndex, title) {
   _galleryImages = images;
@@ -249,6 +254,8 @@ function _galleryRender() {
   const title   = document.getElementById('gallery-title');
   const prev    = document.getElementById('gallery-prev');
   const next    = document.getElementById('gallery-next');
+
+  _galleryResetZoom();
 
   if (img) {
     img.classList.add('fade');
@@ -313,7 +320,139 @@ function closeGalleryModal(e) {
 }
 window.closeGalleryModal = closeGalleryModal;
 
+/* ── Gallery Zoom & Pan ── */
+function _galleryApplyTransform() {
+  const img = document.getElementById('gallery-img');
+  if (!img) return;
+  img.style.transform = `translate(${_galleryPanX}px, ${_galleryPanY}px) scale(${_galleryZoom})`;
+  img.classList.toggle('zoomed', _galleryZoom > 1);
+}
+
+function _galleryResetZoom() {
+  _galleryZoom = 1;
+  _galleryPanX = 0;
+  _galleryPanY = 0;
+  _galleryApplyTransform();
+}
+
+function _galleryClampPan() {
+  // keep pan modest relative to zoom level so image can't be dragged fully off-screen
+  const wrap = document.getElementById('gallery-img-wrap');
+  if (!wrap) return;
+  const maxPan = (wrap.clientWidth * (_galleryZoom - 1)) / 2 + 100;
+  _galleryPanX = Math.max(-maxPan, Math.min(maxPan, _galleryPanX));
+  _galleryPanY = Math.max(-maxPan, Math.min(maxPan, _galleryPanY));
+}
+
+function galleryZoomBy(delta, clientX, clientY) {
+  const wrap = document.getElementById('gallery-img-wrap');
+  const prevZoom = _galleryZoom;
+  _galleryZoom = Math.max(GALLERY_MIN_ZOOM, Math.min(GALLERY_MAX_ZOOM, _galleryZoom + delta));
+
+  if (_galleryZoom === GALLERY_MIN_ZOOM) {
+    _galleryPanX = 0;
+    _galleryPanY = 0;
+  } else if (wrap && clientX !== undefined) {
+    // zoom toward cursor/pinch point
+    const rect = wrap.getBoundingClientRect();
+    const offsetX = clientX - (rect.left + rect.width / 2);
+    const offsetY = clientY - (rect.top + rect.height / 2);
+    const scaleDelta = _galleryZoom / prevZoom - 1;
+    _galleryPanX -= offsetX * scaleDelta;
+    _galleryPanY -= offsetY * scaleDelta;
+    _galleryClampPan();
+  }
+  _galleryApplyTransform();
+}
+window.galleryZoomBy = galleryZoomBy;
+
+function _galleryToggleDblClickZoom(e) {
+  if (_galleryZoom > 1) {
+    _galleryResetZoom();
+  } else {
+    galleryZoomBy(1.5, e.clientX, e.clientY);
+  }
+}
+
+function _galleryInitZoomInteractions() {
+  const wrap = document.getElementById('gallery-img-wrap');
+  const img  = document.getElementById('gallery-img');
+  if (!wrap || !img || wrap.dataset.zoomInit) return;
+  wrap.dataset.zoomInit = 'true';
+
+  // scroll wheel zoom
+  wrap.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    galleryZoomBy(e.deltaY < 0 ? 0.4 : -0.4, e.clientX, e.clientY);
+  }, { passive: false });
+
+  // double-click to zoom
+  img.addEventListener('dblclick', _galleryToggleDblClickZoom);
+
+  // mouse drag pan
+  let dragging = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
+  img.addEventListener('mousedown', (e) => {
+    if (_galleryZoom <= 1) return;
+    dragging = true;
+    img.classList.add('panning');
+    startX = e.clientX; startY = e.clientY;
+    startPanX = _galleryPanX; startPanY = _galleryPanY;
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    _galleryPanX = startPanX + (e.clientX - startX);
+    _galleryPanY = startPanY + (e.clientY - startY);
+    _galleryClampPan();
+    _galleryApplyTransform();
+  });
+  window.addEventListener('mouseup', () => {
+    dragging = false;
+    img.classList.remove('panning');
+  });
+
+  // touch: pinch-zoom + single-finger pan
+  let touchStartDist = 0, touchStartZoom = 1;
+  let touchStartX = 0, touchStartY = 0, touchStartPanX = 0, touchStartPanY = 0;
+
+  wrap.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      touchStartDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      touchStartZoom = _galleryZoom;
+    } else if (e.touches.length === 1 && _galleryZoom > 1) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchStartPanX = _galleryPanX;
+      touchStartPanY = _galleryPanY;
+    }
+  }, { passive: true });
+
+  wrap.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      const dist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+      const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+      const newZoom = Math.max(GALLERY_MIN_ZOOM, Math.min(GALLERY_MAX_ZOOM, touchStartZoom * (dist / touchStartDist)));
+      galleryZoomBy(newZoom - _galleryZoom, midX, midY);
+    } else if (e.touches.length === 1 && _galleryZoom > 1) {
+      e.preventDefault();
+      _galleryPanX = touchStartPanX + (e.touches[0].clientX - touchStartX);
+      _galleryPanY = touchStartPanY + (e.touches[0].clientY - touchStartY);
+      _galleryClampPan();
+      _galleryApplyTransform();
+    }
+  }, { passive: false });
+}
+
 function initGalleryModal() {
+  _galleryInitZoomInteractions();
   // Wire up "📸 Photos" buttons
   document.querySelectorAll('[data-gallery]').forEach(card => {
     let images = [];
