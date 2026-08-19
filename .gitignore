@@ -6,3 +6,7 @@ vendor/
 .bundle/
 Gemfile.lock
 README.md
+assets/images/.DS_Store
+assets/images/.DS_Store
+assets/images/past_events/.DS_Store
+.DS_Store
