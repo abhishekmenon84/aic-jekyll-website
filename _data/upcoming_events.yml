@@ -17,3 +17,14 @@
   featured: true
   register_url: "https://forms.gle/QdYYS5JcyGdwZua36"
   image: "/assets/images/upcoming_events/Diwali-Gala-2026.jpeg"
+
+- title: "STAND STRONG: Youth Against Racism"
+  date: "2026-10-03"
+  time: "See schedule of sessions"
+  location: "MCAF Space & Online"
+  description: "A youth-led anti-racism education and community engagement initiative. Learn practical tools to recognize racism, respond safely, and support others."
+  category: "Community"
+  emoji: "✊"
+  featured: true
+  register_url: "/events/youth/stand-strong/"
+  image: "/assets/images/logo.jpeg"

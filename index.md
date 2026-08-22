@@ -113,7 +113,7 @@ description: "AIC Fredericton — Fostering a vibrant, inclusive, and engaged In
     </div>
 
     <!-- Governance Documents -->
-    <div class="mt-20 pt-16 border-t border-stone-200">
+    <div id="official-documents" class="mt-20 pt-16 border-t border-stone-200">
       <span class="section-label">Governance</span>
       <h3 class="section-title mb-8">Official Documents</h3>
       <div class="grid md:grid-cols-2 gap-6">

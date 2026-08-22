@@ -273,6 +273,20 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
 .filter-tab.active { background: var(--saffron); color: white; }
 .filter-tab:hover:not(.active) { background: #f0ece0; }
 
+/* ── EVENT TYPE SWITCHER TABS ── */
+.event-type-tab {
+  background: transparent;
+  color: #666;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.event-type-tab.active {
+  background: white;
+  color: var(--saffron);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
