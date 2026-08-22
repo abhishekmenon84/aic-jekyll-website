@@ -20,6 +20,12 @@ description: "AIC Fredericton — Fostering a vibrant, inclusive, and engaged In
   <!-- Particles -->
   <div id="hero-particles" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
 
+  <!-- Background flags with fusion and 60% transparency -->
+  <div class="hero-flags-bg">
+    <div class="hero-flag flag-india-bg" style="background-image: url('{{ '/assets/images/india-flag.svg' | relative_url }}');"></div>
+    <div class="hero-flag flag-canada-bg" style="background-image: url('{{ '/assets/images/canada-flag.svg' | relative_url }}');"></div>
+  </div>
+
   <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
     <div class="anim-1 mb-8">
       <img src="{{ '/assets/images/logo.jpeg' | relative_url }}" alt="{{ site.org.short_name }} Logo"
