@@ -111,6 +111,29 @@ description: "AIC Fredericton — Fostering a vibrant, inclusive, and engaged In
         </div>
       </div>
     </div>
+
+    <!-- Governance Documents -->
+    <div class="mt-20 pt-16 border-t border-stone-200">
+      <span class="section-label">Governance</span>
+      <h3 class="section-title mb-8">Official Documents</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- AIC Constitution -->
+        <div class="value-card flex flex-col">
+          <div class="text-3xl mb-3">📋</div>
+          <h4 class="text-lg font-semibold mb-2">AIC Constitution</h4>
+          <p class="text-stone-500 text-sm leading-relaxed mb-4 flex-grow">Amended March 1986. The founding constitution outlining the organization's objectives, membership structure, executive board responsibilities, and governance principles.</p>
+          <a href="{{ '/assets/documents/AIC Constitution.pdf' | relative_url }}" class="btn-saffron text-sm py-2 px-4 inline-block" download>Download PDF</a>
+        </div>
+
+        <!-- Conflict of Interest Policy -->
+        <div class="value-card flex flex-col">
+          <div class="text-3xl mb-3">⚖️</div>
+          <h4 class="text-lg font-semibold mb-2">Conflict of Interest Policy</h4>
+          <p class="text-stone-500 text-sm leading-relaxed mb-4 flex-grow">Official policy for the Board of Directors and Executives. Establishes procedures for disclosing, investigating, and addressing conflicts of interest to protect organizational integrity.</p>
+          <a href="{{ '/assets/documents/Conflict Of Interest Policy for the Board of directors and Executives-ms.pdf' | relative_url }}" class="btn-saffron text-sm py-2 px-4 inline-block" download>Download PDF</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
