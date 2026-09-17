@@ -88,38 +88,92 @@ permalink: /information-center/
         </p>
       </div>
 
-      <!--
-        TODO: Replace the src below with your published Google Form's embed URL
-        once created (Form → Send → Embed <> → copy the src). Suggested fields
-        to include on the Google Form, in this order:
-          1. Owner's Name (short answer, required)
-          2. Business Name (short answer, required)
-          3. Business Description (paragraph, required)
-          4. Phone Number (short answer, required)
-          5. WhatsApp Number (short answer, optional)
-          6. HST/GST Number, if applicable (short answer, optional)
-          7. Category (dropdown, required) — pre-fill with the options below
-             so submissions map cleanly onto the site's existing categories:
-             Auto Repair & Auto Detailing · Auto Sales · Cakes & Bakery ·
-             Children's Tutoring Service · Driving Instructor ·
-             Event Organizers / Decorations · Food Packaging Supplies ·
-             Gym Personal Trainer & Dietitian · Heena (Mehandi) ·
-             Home Cleaning · Home Security & Cameras · Homeopathy Specialist ·
-             Immigration Service Providers · Indian Artificial Jewellery ·
-             Indian Convenience Stores · Indian Food Tiffin Service ·
-             Indian Pizza Stores · Indian Restaurant · Laptop / Desktop Repair ·
-             Lawn Mowing & Landscaping · Medical Appointments (Work Permit) ·
-             Notary & Commissioner of Oaths · Packers and Movers ·
-             Photography & Content Creation · Printing (Banners/Signs/Labels) ·
-             Realtors · Renovation / Handyman / Paint / Plumber / Electrician ·
-             Salon / Barber (Kids, Men & Women) · Software Solutions ·
-             Stitching and Alterations · Tax, Finance, Insurance & Accounting ·
-             US Visa Appointment · Web App / Website Design & Development ·
-             Other (please specify in description)
-      -->
-      <div style="width:100%;min-height:900px;">
-        <iframe src="https://docs.google.com/forms/d/e/PLACEHOLDER_FORM_ID/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:12px;">Loading…</iframe>
-      </div>
+      <form id="biz-submit-form" class="space-y-4 max-w-2xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">Owner's Name</label>
+            <input type="text" id="bs-owner" required class="form-input" placeholder="Jane Doe" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">Business Name</label>
+            <input type="text" id="bs-name" required class="form-input" placeholder="Your Business Name" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">Business Description</label>
+          <textarea id="bs-description" required rows="3" class="form-input" placeholder="What does your business offer?"></textarea>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">Phone Number</label>
+            <input type="tel" id="bs-phone" required class="form-input" placeholder="506 123 4567" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">WhatsApp Number (optional)</label>
+            <input type="tel" id="bs-whatsapp" class="form-input" placeholder="15061234567" />
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">HST/GST Number (if applicable)</label>
+            <input type="text" id="bs-hst" class="form-input" placeholder="Optional" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">Category</label>
+            <select id="bs-category" required class="form-input" style="cursor:pointer;">
+              <option value="" disabled selected>Select a category…</option>
+              <option>Auto Repair &amp; Auto Detailing</option>
+              <option>Auto Sales</option>
+              <option>Cakes &amp; Bakery</option>
+              <option>Children's Tutoring Service</option>
+              <option>Driving Instructor</option>
+              <option>Event Organizers / Decorations</option>
+              <option>Food Packaging Supplies</option>
+              <option>Gym Personal Trainer &amp; Dietitian</option>
+              <option>Heena (Mehandi)</option>
+              <option>Home Cleaning</option>
+              <option>Home Security &amp; Cameras</option>
+              <option>Homeopathy Specialist</option>
+              <option>Immigration Service Providers</option>
+              <option>Indian Artificial Jewellery</option>
+              <option>Indian Convenience Stores</option>
+              <option>Indian Food Tiffin Service</option>
+              <option>Indian Pizza Stores</option>
+              <option>Indian Restaurant</option>
+              <option>Laptop / Desktop Repair</option>
+              <option>Lawn Mowing &amp; Landscaping</option>
+              <option>Medical Appointments (Work Permit)</option>
+              <option>Notary &amp; Commissioner of Oaths</option>
+              <option>Packers and Movers</option>
+              <option>Photography &amp; Content Creation</option>
+              <option>Printing (Banners/Signs/Labels)</option>
+              <option>Realtors</option>
+              <option>Renovation / Handyman / Paint / Plumber / Electrician</option>
+              <option>Salon / Barber (Kids, Men &amp; Women)</option>
+              <option>Software Solutions</option>
+              <option>Stitching and Alterations</option>
+              <option>Tax, Finance, Insurance &amp; Accounting</option>
+              <option>US Visa Appointment</option>
+              <option>Web App / Website Design &amp; Development</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full btn-saffron py-3 rounded-lg text-sm font-semibold tracking-wide mt-2">
+          Submit for Review
+        </button>
+
+        <div id="bs-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg text-sm text-center">
+          🎉 Thank you! Your submission has been received. A community representative will review and approve it before it appears publicly.
+        </div>
+        <div id="bs-error" class="hidden mt-4 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm text-center">
+          Something went wrong submitting your business. Please try again in a moment.
+        </div>
+      </form>
     </div>
 
     <!-- Search & Filter -->
@@ -143,7 +197,18 @@ permalink: /information-center/
 <script id="ic-data" type="application/json">
 {
   "essentials": {{ site.data.essential_services | jsonify }},
-  "businesses": {{ site.data.community_businesses | jsonify }}
+  "businesses": [
+    {% assign approved = site.businesses | where: "status", "approved" %}
+    {% for b in approved %}
+    {
+      "name": {{ b.name | jsonify }},
+      "category": {{ b.category | jsonify }},
+      "phone": {{ b.phone | jsonify }},
+      "whatsapp": {{ b.whatsapp | jsonify }},
+      "address": {{ b.address | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
 }
 </script>
 
@@ -228,5 +293,50 @@ document.addEventListener('DOMContentLoaded', () => {
   searchEl.addEventListener('input', render);
   categoryEl.addEventListener('change', render);
   render();
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('biz-submit-form');
+  if (!form) return;
+
+  const SUBMIT_URL = 'https://aic-cms-oauth.egressiq.workers.dev/submit-business';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    document.getElementById('bs-success').classList.add('hidden');
+    document.getElementById('bs-error').classList.add('hidden');
+
+    const payload = {
+      owner_name: document.getElementById('bs-owner').value.trim(),
+      name: document.getElementById('bs-name').value.trim(),
+      description: document.getElementById('bs-description').value.trim(),
+      phone: document.getElementById('bs-phone').value.trim(),
+      whatsapp: document.getElementById('bs-whatsapp').value.trim(),
+      hst_number: document.getElementById('bs-hst').value.trim(),
+      category: document.getElementById('bs-category').value,
+    };
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    try {
+      const res = await fetch(SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('Submission failed');
+      document.getElementById('bs-success').classList.remove('hidden');
+      form.reset();
+    } catch (err) {
+      document.getElementById('bs-error').classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit for Review';
+    }
+  });
 });
 </script>
