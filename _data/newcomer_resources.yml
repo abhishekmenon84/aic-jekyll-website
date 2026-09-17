@@ -1,0 +1,114 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# NEWCOMER RESOURCES — Fredericton, NB
+# Curated settlement / government / essential-services links for newcomers.
+# Grouped into topics rendered on the Information Center page.
+# Verify details periodically — government contact info changes occasionally.
+# ─────────────────────────────────────────────────────────────────────────────
+
+- topic: "Settlement Services"
+  icon: "🤝"
+  items:
+    - name: "YMCA Newcomer Connections"
+      description: "Free settlement support: English language help, information sessions, employment support, and community connections for newcomers."
+      address: "570 York Street, Fredericton, NB E3B 3R2"
+      phone: "506 462 3000"
+      url: "https://fredericton.ymca.ca/Programs/Global-Community/Newcomers"
+
+    - name: "Multicultural Association of Fredericton (MCAF)"
+      description: "Resettlement assistance, language instruction, employment programs, and community networking for newcomers and immigrants."
+      address: "28 Saunders Street, Fredericton, NB E3B 1N1"
+      phone: "506 454 8292"
+      url: "https://mcaf.nb.ca/en/"
+
+    - name: "211 New Brunswick"
+      description: "Free, confidential helpline connecting you to community, social, and government services in 170+ languages. Available 24/7."
+      address: "Call 211 or 1 855 258 4126 (toll-free)"
+      phone: "211"
+      url: "https://nb.211.ca/"
+
+- topic: "Healthcare"
+  icon: "🏥"
+  items:
+    - name: "NB Medicare Card — How to Apply"
+      description: "Newcomers from outside Canada may be covered from their first day in NB (no waiting period), but processing typically takes 10–12 weeks — apply as soon as possible. Those moving from another Canadian province face a 3-month wait."
+      address: ""
+      phone: ""
+      url: "https://www2.gnb.ca/content/gnb/en/departments/health/DrugPlans/content/medicare/ApplyingforaCard.html"
+
+    - name: "Tele-Care 811"
+      description: "Free, bilingual, confidential health advice line staffed by registered nurses, available 24/7 for non-emergency health questions."
+      address: "Dial 811"
+      phone: "811"
+      url: "https://www2.gnb.ca/content/gnb/en/departments/health/Tele-Care/content/Tele-Care_FAQ.html"
+
+    - name: "NB Addiction and Mental Health Helpline"
+      description: "Confidential, bilingual, 24/7 mental health and addictions support line with crisis intervention and referrals."
+      address: "Dial 811 (after-hours) or call directly"
+      phone: "1 800 667 5005"
+      url: "https://socialsupportsnb.ca/en/category/help-mental-health"
+
+    - name: "Dr. Everett Chalmers Regional Hospital"
+      description: "Fredericton's main hospital — emergency department, inpatient services, and outpatient clinics."
+      address: "700 Priestman Street, Fredericton, NB E3B 3B7"
+      phone: "506 452 5400"
+      url: "https://horizonnb.ca/facilities/dr-everett-chalmers-regional-hospital/"
+
+- topic: "Government ID & Documents"
+  icon: "🪪"
+  items:
+    - name: "Social Insurance Number (SIN)"
+      description: "Required to work in Canada or access government programs. Free to apply — online, by mail, or in person at a Service Canada Centre. Same-day in person if documents are in order."
+      address: ""
+      phone: ""
+      url: "https://www.canada.ca/en/employment-social-development/services/sin/apply.html"
+
+    - name: "NB Driver's Licence for New Residents"
+      description: "New residents from a country with a reciprocal agreement (e.g. UK, Germany, Japan, South Korea) can exchange their licence directly. Others must complete a written and road test. Bring your current licence plus two documents proving your NB address."
+      address: "Visit any Service New Brunswick centre"
+      phone: "1 888 762 8600"
+      url: "https://www.gnb.ca/en/topic/driving-transportation/driving-licensing/licences-new-residents.html"
+
+- topic: "Schools & Education"
+  icon: "🎒"
+  items:
+    - name: "Anglophone West School District — Newcomer Support Centre"
+      description: "Children born outside Canada, or who speak a language other than English at home, register here (not directly at their local school). Book an appointment; bring immunization records and proof of date of birth."
+      address: "20 Knowledge Park Drive, Fredericton, NB E3C 2P5"
+      phone: ""
+      url: "https://asdw.nbed.ca/about-asd-w/schools-and-facilities/newcomer-support-centre/"
+
+- topic: "Transportation"
+  icon: "🚌"
+  items:
+    - name: "Fredericton Transit"
+      description: "City bus service — 11 routes (7 more on Sundays). $3.00 cash/debit/credit per ride; monthly passes available via the HotSpot app. Kings Place is the main downtown hub."
+      address: ""
+      phone: ""
+      url: "https://www.fredericton.ca/resident-services/fredericton-transit"
+
+- topic: "Emergency & Safety"
+  icon: "🚨"
+  items:
+    - name: "Emergency (Police, Fire, Ambulance)"
+      description: "For any life-threatening emergency."
+      address: ""
+      phone: "911"
+      url: ""
+
+    - name: "Fredericton Police — Non-Emergency"
+      description: "For non-urgent police matters, reports, or general inquiries."
+      address: ""
+      phone: "506 460 2300"
+      url: "https://www.fredericton.ca/contact-directory/police-non-emergency"
+
+    - name: "Women in Transition House (24/7 Crisis Line)"
+      description: "Emergency shelter and crisis support for women and children experiencing domestic violence."
+      address: ""
+      phone: "506 459 2300"
+      url: "http://www.womenintransitionhouse.ca/"
+
+    - name: "Fredericton Emergency Shelter"
+      description: "General emergency shelter services."
+      address: "65 Brunswick Street, Fredericton, NB E3B 1G5"
+      phone: "506 450 1102"
+      url: ""

@@ -29,6 +29,52 @@ permalink: /information-center/
       </p>
     </div>
 
+    <!-- Newcomer Resources -->
+    <div class="mb-16">
+      <div class="text-center mb-10 reveal">
+        <span class="section-label">Getting Started</span>
+        <h2 class="section-title" style="font-size:clamp(1.6rem,3.4vw,2.4rem);">Newcomer Resources</h2>
+        <div class="divider mx-auto"></div>
+        <p class="text-stone-500 text-sm max-w-2xl mx-auto leading-relaxed">
+          Settlement support, healthcare, government ID, schools, transit, and emergency contacts —
+          the essentials for getting set up in Fredericton.
+        </p>
+      </div>
+
+      {% for topic in site.data.newcomer_resources %}
+      <div class="mb-10 reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">{{ topic.icon }}</span>
+          <h3 class="text-lg font-bold" style="font-family:'Playfair Display',serif; color:var(--charcoal);">{{ topic.topic }}</h3>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          {% for item in topic.items %}
+          <div class="value-card">
+            <h4 class="text-base font-semibold mb-1.5">{{ item.name }}</h4>
+            <p class="text-stone-500 text-sm leading-relaxed mb-3">{{ item.description }}</p>
+            {% if item.address and item.address != "" %}
+            <div class="flex items-start gap-2 text-stone-500 text-sm mb-1">
+              <span style="color:var(--saffron);">📍</span><span>{{ item.address }}</span>
+            </div>
+            {% endif %}
+            {% if item.phone and item.phone != "" %}
+            <div class="flex items-start gap-2 text-stone-500 text-sm mb-1">
+              <span style="color:var(--saffron);">📞</span>
+              <a href="tel:{{ item.phone | remove: ' ' }}" style="text-decoration:none;color:inherit;">{{ item.phone }}</a>
+            </div>
+            {% endif %}
+            {% if item.url and item.url != "" %}
+            <a href="{{ item.url }}" target="_blank" rel="noopener" class="text-sm font-semibold mt-2 inline-block" style="color:var(--saffron-dark);">
+              Learn more →
+            </a>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
     <!-- Submit a Business -->
     <div class="bg-white border border-stone-200 rounded-3xl p-8 shadow-xl mb-16 reveal">
       <div class="text-center mb-6">
