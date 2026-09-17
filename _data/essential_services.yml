@@ -1,0 +1,36 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ESSENTIAL SERVICES — Fredericton, NB
+# Key government and retail services newcomers commonly need.
+# Addresses/phone numbers verified from official sources — update if a
+# location moves or a number changes.
+# ─────────────────────────────────────────────────────────────────────────────
+
+- name: "Costco Wholesale"
+  category: "Grocery & Retail"
+  phone: "506 460 4100"
+  whatsapp: ""
+  address: "25 Wayne Squibb Boulevard, Fredericton, NB E3C 0G8"
+
+- name: "Walmart Supercentre (Southside / Regent Mall)"
+  category: "Grocery & Retail"
+  phone: "506 452 0870"
+  whatsapp: ""
+  address: "1381 Regent Street, Fredericton, NB E3C 1A3"
+
+- name: "Walmart Supercentre (North / Two Nations Crossing)"
+  category: "Grocery & Retail"
+  phone: "506 444 9186"
+  whatsapp: ""
+  address: "125 Two Nations Crossing, Fredericton, NB E3A 0T3"
+
+- name: "Service Canada Centre"
+  category: "Government Services"
+  phone: "1 800 622 6232"
+  whatsapp: ""
+  address: "1133 Regent Street, Suite 200, Fredericton, NB E3B 3Z2"
+
+- name: "Service New Brunswick"
+  category: "Government Services"
+  phone: "1 888 762 8600"
+  whatsapp: ""
+  address: "435 Brookside Drive, Suite 25, Fredericton, NB E3A 8V4"
