@@ -1,0 +1,46 @@
+backend:
+  name: github
+  repo: abhishekmenon84/aic-jekyll-website
+  branch: main
+  base_url: https://aic-cms-oauth.egressiq.workers.dev
+  auth_endpoint: auth
+
+# Only used if an editor uploads an image from within the CMS (not required
+# for the business directory workflow, but Decap requires this to be set).
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "businesses"
+    label: "Business Directory"
+    label_singular: "Business"
+    description: "Approve, reject, or edit community business listings. New public submissions arrive here with status = Pending — set status to Approved to publish them on the Information Center page, or delete the entry to reject it. To remove a business that has closed or lost its licence, just delete its entry here."
+    folder: "_businesses"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    summary: "{{name}} — {{category}} [{{status}}]"
+    sortable_fields: ["name", "category", "status", "submitted_at"]
+    view_filters:
+      - label: "Pending Review"
+        field: status
+        pattern: "pending"
+      - label: "Approved"
+        field: status
+        pattern: "approved"
+    view_groups:
+      - label: "Status"
+        field: status
+    fields:
+      - { label: "Status", name: "status", widget: "select", options: ["pending", "approved"], default: "pending", hint: "Approved businesses appear publicly on the Information Center page. Set to Pending to hide without deleting." }
+      - { label: "Business Name", name: "name", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Auto Repair & Auto Detailing", "Auto Sales", "Cakes & Bakery", "Children's Tutoring Service", "Driving Instructor", "Event Organizers / Decorations", "Food Packaging Supplies", "Gym Personal Trainer & Dietitian", "Heena (Mehandi)", "Home Cleaning", "Home Security & Cameras", "Homeopathy Specialist", "Immigration Service Providers", "Indian Artificial Jewellery", "Indian Convenience Stores", "Indian Food Tiffin Service", "Indian Pizza Stores", "Indian Restaurant", "Laptop / Desktop Repair", "Lawn Mowing & Landscaping", "Medical Appointments (Work Permit)", "Notary & Commissioner of Oaths", "Packers and Movers", "Photography & Content Creation", "Printing (Banners/Signs/Labels)", "Realtors", "Renovation / Handyman / Paint / Plumber / Electrician", "Salon / Barber (Kids, Men & Women)", "Software Solutions", "Stitching and Alterations", "Tax, Finance, Insurance & Accounting", "US Visa Appointment", "Web App / Website Design & Development", "Grocery & Retail", "Government Services", "Other"] }
+      - { label: "Owner's Name", name: "owner_name", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Phone", name: "phone", widget: "string", required: false }
+      - { label: "WhatsApp Number", name: "whatsapp", widget: "string", required: false, hint: "Digits only, with country code, e.g. 15061234567" }
+      - { label: "Address", name: "address", widget: "string", required: false }
+      - { label: "Website", name: "website", widget: "string", required: false }
+      - { label: "HST/GST Number", name: "hst_number", widget: "string", required: false }
+      - { label: "Submitted On", name: "submitted_at", widget: "string", required: false }
