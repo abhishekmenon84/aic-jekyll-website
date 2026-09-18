@@ -53,6 +53,18 @@
       phone: "506 452 5400"
       url: "https://horizonnb.ca/facilities/dr-everett-chalmers-regional-hospital/"
 
+    - name: "Bloodwork & Lab Tests (Specimen Collection)"
+      description: "A lab requisition from your doctor or nurse practitioner is required — appointments cannot be booked without one. Book online at horizonnb.ca/laboratory or by phone. Bring your NB Medicare card or valid government-issued photo ID. Two Fredericton locations: Dr. Everett Chalmers Regional Hospital (700 Priestman St, Mon–Fri 7 am–4 pm) and Fredericton North Specimen Collection at Brookside Mall (435 Brookside Drive, Mon–Fri 8 am–4 pm, appointment only)."
+      address: "700 Priestman St. or 435 Brookside Drive, Fredericton, NB"
+      phone: "1 833 482 0774"
+      url: "https://horizonnb.ca/services/test-and-procedures/blood-and-specimen-collection/"
+
+    - name: "Blood Donation (Canadian Blood Services)"
+      description: "Fredericton has no permanent donor centre — donations happen at mobile clinics held periodically around the city. Find an upcoming clinic and book a donation appointment online, on the GiveBlood app, or by phone."
+      address: ""
+      phone: "1 888 236 6283"
+      url: "https://www.blood.ca/en/blood/donating-blood"
+
 - topic: "Government ID & Documents"
   icon: "🪪"
   items:
