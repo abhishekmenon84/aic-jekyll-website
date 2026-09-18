@@ -8,6 +8,6 @@ website: ''
 owner_name: 'Pending Test Owner'
 description: 'Testing the approve/reject workflow.'
 hst_number: ''
-status: 'approved'
+status: 'pending'
 submitted_at: '2026-09-18'
 ---
