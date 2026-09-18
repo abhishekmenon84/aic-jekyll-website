@@ -49,12 +49,15 @@ export interface Env {
   MODERATOR_USERNAME: string;
   MODERATOR_PASSWORD_HASH: string; // "<saltHex>:<hashHex>", PBKDF2-SHA256, 100000 iterations
   SESSION_SECRET: string; // HMAC signing key for bearer tokens
+  RESEND_API_KEY: string; // Resend (resend.com) sending-only API key
 }
 
 const GITHUB_AUTHORIZE_URL = "https://github.com/login/oauth/authorize";
 const GITHUB_TOKEN_URL = "https://github.com/login/oauth/access_token";
 const GITHUB_USER_URL = "https://api.github.com/user";
 const ALLOWED_ORIGIN = "https://aicfred.org";
+const NOTIFY_EMAIL = "indo.canadians@gmail.com";
+const NOTIFY_FROM = "AIC Directory <notifications@send.aicfred.org>";
 const CONTENT_BRANCH = "main";
 const SESSION_TTL_SECONDS = 8 * 60 * 60; // 8 hours
 
@@ -723,10 +726,65 @@ async function handleSubmitBusiness(request: Request, env: Env): Promise<Respons
     return new Response(`Failed to submit: ${errText}`, { status: 502, headers: corsHeaders("POST", request) });
   }
 
+  // Best-effort notification — a Resend outage or misconfiguration should
+  // never block the actual submission, which already succeeded above.
+  try {
+    await sendNewBusinessEmail(env, { name, category, owner_name, phone, description });
+  } catch (err) {
+    console.error("Failed to send new-business notification email:", err);
+  }
+
   return new Response(JSON.stringify({ ok: true }), {
     status: 201,
     headers: { ...corsHeaders("POST", request), "Content-Type": "application/json" },
   });
+}
+
+async function sendNewBusinessEmail(
+  env: Env,
+  business: { name: string; category: string; owner_name: string; phone: string; description: string }
+): Promise<void> {
+  const html = `
+    <h2>New business submitted for review</h2>
+    <p><strong>${escapeHtml(business.name)}</strong> (${escapeHtml(business.category)})</p>
+    <ul>
+      <li><strong>Submitted by:</strong> ${escapeHtml(business.owner_name)}</li>
+      <li><strong>Phone:</strong> ${escapeHtml(business.phone)}</li>
+      <li><strong>Description:</strong> ${escapeHtml(business.description)}</li>
+    </ul>
+    <p>
+      <a href="https://aicfred.org/moderator/">Review in Moderator Dashboard →</a><br/>
+      <a href="https://aicfred.org/admin/#/collections/businesses">Review in Admin CMS →</a>
+    </p>
+  `;
+
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: NOTIFY_FROM,
+      to: NOTIFY_EMAIL,
+      subject: `New business pending approval: ${business.name}`,
+      html,
+    }),
+  });
+
+  if (!res.ok) {
+    const errText = await res.text();
+    throw new Error(`Resend API error (${res.status}): ${errText}`);
+  }
+}
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function renderPostMessage(result: { token?: string; provider?: string; error?: string; error_description?: string }): string {
