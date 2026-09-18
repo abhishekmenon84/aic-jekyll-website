@@ -13,7 +13,7 @@ extra_head: '<meta name="robots" content="noindex, nofollow" />'
       Business Directory
     </h1>
     <p class="text-white/55 max-w-xl mx-auto text-lg">
-      Add or remove community business listings.
+      Approve or reject new submissions, and add or remove community business listings.
     </p>
   </div>
 </div>
@@ -158,11 +158,24 @@ document.addEventListener('DOMContentLoaded', () => {
     return data;
   }
 
-  function rowHTML(b) {
+  function pendingRowHTML(b) {
+    return `<div class="value-card flex items-center justify-between gap-4" style="padding:16px 20px; border-color:#FFE0B2;">
+      <div class="min-w-0 flex-1">
+        <div class="font-semibold text-sm">${b.name || '(unnamed)'}</div>
+        <div class="text-stone-400 text-xs">${b.category || ''}${b.owner_name ? ' · Submitted by ' + b.owner_name : ''}${b.phone ? ' · ' + b.phone : ''}</div>
+      </div>
+      <div class="flex gap-2 flex-shrink-0">
+        <button class="mod-approve-btn text-xs font-semibold text-white px-3 py-1.5 rounded-full" style="background:var(--green);" data-path="${b.path}" data-name="${(b.name || '').replace(/"/g, '&quot;')}">Approve</button>
+        <button class="mod-reject-btn text-xs font-semibold text-red-600 hover:text-red-800" data-path="${b.path}" data-name="${(b.name || '').replace(/"/g, '&quot;')}">Reject</button>
+      </div>
+    </div>`;
+  }
+
+  function approvedRowHTML(b) {
     return `<div class="value-card flex items-center justify-between gap-4" style="padding:16px 20px;">
       <div class="min-w-0 flex-1">
         <div class="font-semibold text-sm">${b.name || '(unnamed)'}</div>
-        <div class="text-stone-400 text-xs">${b.category || ''} · <span class="uppercase font-semibold" style="color:${b.status === 'approved' ? 'var(--green)' : 'var(--saffron-dark)'};">${b.status || 'unknown'}</span></div>
+        <div class="text-stone-400 text-xs">${b.category || ''}</div>
       </div>
       <button class="mod-delete-btn text-xs font-semibold text-red-600 hover:text-red-800 flex-shrink-0" data-path="${b.path}" data-name="${(b.name || '').replace(/"/g, '&quot;')}">Delete</button>
     </div>`;
@@ -171,8 +184,58 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadList() {
     const data = await api('GET', '/moderator/businesses');
     const businesses = data.businesses.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
-    countEl.textContent = `${businesses.length} businesses`;
-    listEl.innerHTML = `<div class="space-y-2">${businesses.map(rowHTML).join('')}</div>`;
+    const pending = businesses.filter((b) => b.status !== 'approved');
+    const approved = businesses.filter((b) => b.status === 'approved');
+
+    countEl.textContent = `${approved.length} approved · ${pending.length} pending review`;
+
+    let html = '';
+    if (pending.length) {
+      html += `<div class="mb-10">
+        <h2 class="text-base font-bold mb-4 flex items-center gap-2" style="font-family:'Playfair Display',serif; color:var(--saffron-dark);">
+          Pending Review <span class="text-xs font-semibold px-2.5 py-1 rounded-full" style="background:#FFF3E0;">${pending.length}</span>
+        </h2>
+        <div class="space-y-2">${pending.map(pendingRowHTML).join('')}</div>
+      </div>`;
+    }
+    html += `<div>
+      <h2 class="text-base font-bold mb-4 flex items-center gap-2" style="font-family:'Playfair Display',serif; color:var(--green);">
+        Approved <span class="text-xs font-semibold px-2.5 py-1 rounded-full" style="background:#E8F5E9;">${approved.length}</span>
+      </h2>
+      <div class="space-y-2">${approved.map(approvedRowHTML).join('')}</div>
+    </div>`;
+    listEl.innerHTML = html;
+
+    listEl.querySelectorAll('.mod-approve-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        btn.disabled = true;
+        btn.textContent = 'Approving…';
+        try {
+          await api('PATCH', '/moderator/businesses', { path: btn.dataset.path, status: 'approved' });
+          await loadList();
+        } catch (err) {
+          alert(err.message);
+          btn.disabled = false;
+          btn.textContent = 'Approve';
+        }
+      });
+    });
+
+    listEl.querySelectorAll('.mod-reject-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        if (!confirm(`Reject and delete "${btn.dataset.name}"? This cannot be undone.`)) return;
+        btn.disabled = true;
+        btn.textContent = 'Rejecting…';
+        try {
+          await api('DELETE', '/moderator/businesses', { path: btn.dataset.path });
+          await loadList();
+        } catch (err) {
+          alert(err.message);
+          btn.disabled = false;
+          btn.textContent = 'Reject';
+        }
+      });
+    });
 
     listEl.querySelectorAll('.mod-delete-btn').forEach((btn) => {
       btn.addEventListener('click', async () => {

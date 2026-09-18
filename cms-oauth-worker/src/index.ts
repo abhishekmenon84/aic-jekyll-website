@@ -287,11 +287,12 @@ export default {
     }
 
     if (url.pathname === "/moderator/businesses") {
-      if (request.method === "OPTIONS") return new Response(null, { headers: corsHeaders("GET, POST, DELETE", request) });
+      if (request.method === "OPTIONS") return new Response(null, { headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
       if (request.method === "GET") return handleListBusinesses(request, env);
       if (request.method === "POST") return handleAddBusiness(request, env);
+      if (request.method === "PATCH") return handleUpdateBusinessStatus(request, env);
       if (request.method === "DELETE") return handleDeleteBusiness(request, env);
-      return new Response("Method not allowed", { status: 405, headers: corsHeaders("GET, POST, DELETE", request) });
+      return new Response("Method not allowed", { status: 405, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
     }
 
     if (url.pathname === "/admin/set-moderator-credentials") {
@@ -431,7 +432,7 @@ async function handleModeratorLogin(request: Request, env: Env): Promise<Respons
 
 async function handleListBusinesses(request: Request, env: Env): Promise<Response> {
   const session = await requireRole(request, env, "moderator");
-  if (!session) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders("GET, POST, DELETE", request) });
+  if (!session) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
 
   // Fetching each of ~100+ files individually via the REST Contents API blows
   // past the Worker's per-invocation subrequest limit. The GraphQL API can
@@ -466,7 +467,7 @@ async function handleListBusinesses(request: Request, env: Env): Promise<Respons
   });
 
   if (!gqlRes.ok) {
-    return new Response(JSON.stringify({ error: "Failed to list businesses" }), { status: 502, headers: corsHeaders("GET, POST, DELETE", request) });
+    return new Response(JSON.stringify({ error: "Failed to list businesses" }), { status: 502, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
   }
 
   const gqlData: {
@@ -481,23 +482,23 @@ async function handleListBusinesses(request: Request, env: Env): Promise<Respons
 
   return new Response(JSON.stringify({ businesses }), {
     status: 200,
-    headers: { ...corsHeaders("GET, POST, DELETE", request), "Content-Type": "application/json" },
+    headers: { ...corsHeaders("GET, POST, PATCH, DELETE", request), "Content-Type": "application/json" },
   });
 }
 
 async function handleAddBusiness(request: Request, env: Env): Promise<Response> {
   const session = await requireRole(request, env, "moderator");
-  if (!session) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders("GET, POST, DELETE", request) });
+  if (!session) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
 
   let body: Partial<BusinessSubmission>;
   try {
     body = await request.json();
   } catch {
-    return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400, headers: corsHeaders("GET, POST, DELETE", request) });
+    return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
   }
 
   if (!body.name || !body.category) {
-    return new Response(JSON.stringify({ error: "Missing required field: name or category" }), { status: 400, headers: corsHeaders("GET, POST, DELETE", request) });
+    return new Response(JSON.stringify({ error: "Missing required field: name or category" }), { status: 400, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
   }
 
   const cap = (s: string | undefined, max: number) => (s || "").slice(0, max).trim();
@@ -521,45 +522,91 @@ async function handleAddBusiness(request: Request, env: Env): Promise<Response> 
   const putRes = await githubPut(path, buildFrontMatter(fields), `Moderator added business: ${fields.name}`, env);
   if (!putRes.ok) {
     const err = await putRes.text();
-    return new Response(JSON.stringify({ error: `Failed to add business: ${err}` }), { status: 502, headers: corsHeaders("GET, POST, DELETE", request) });
+    return new Response(JSON.stringify({ error: `Failed to add business: ${err}` }), { status: 502, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
   }
 
   return new Response(JSON.stringify({ ok: true, path }), {
     status: 201,
-    headers: { ...corsHeaders("GET, POST, DELETE", request), "Content-Type": "application/json" },
+    headers: { ...corsHeaders("GET, POST, PATCH, DELETE", request), "Content-Type": "application/json" },
   });
 }
 
 async function handleDeleteBusiness(request: Request, env: Env): Promise<Response> {
   const session = await requireRole(request, env, "moderator");
-  if (!session) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders("GET, POST, DELETE", request) });
+  if (!session) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
 
   let body: { path?: string };
   try {
     body = await request.json();
   } catch {
-    return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400, headers: corsHeaders("GET, POST, DELETE", request) });
+    return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
   }
 
   if (!body.path || !body.path.startsWith("_businesses/") || !body.path.endsWith(".md")) {
-    return new Response(JSON.stringify({ error: "Invalid path" }), { status: 400, headers: corsHeaders("GET, POST, DELETE", request) });
+    return new Response(JSON.stringify({ error: "Invalid path" }), { status: 400, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
   }
 
   const getRes = await githubGet(body.path, env);
   if (!getRes.ok) {
-    return new Response(JSON.stringify({ error: "Business not found" }), { status: 404, headers: corsHeaders("GET, POST, DELETE", request) });
+    return new Response(JSON.stringify({ error: "Business not found" }), { status: 404, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
   }
   const fileData: { sha: string } = await getRes.json();
 
   const delRes = await githubDelete(body.path, fileData.sha, `Moderator removed business: ${body.path}`, env);
   if (!delRes.ok) {
     const err = await delRes.text();
-    return new Response(JSON.stringify({ error: `Failed to delete business: ${err}` }), { status: 502, headers: corsHeaders("GET, POST, DELETE", request) });
+    return new Response(JSON.stringify({ error: `Failed to delete business: ${err}` }), { status: 502, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
   }
 
   return new Response(JSON.stringify({ ok: true }), {
     status: 200,
-    headers: { ...corsHeaders("GET, POST, DELETE", request), "Content-Type": "application/json" },
+    headers: { ...corsHeaders("GET, POST, PATCH, DELETE", request), "Content-Type": "application/json" },
+  });
+}
+
+async function handleUpdateBusinessStatus(request: Request, env: Env): Promise<Response> {
+  const session = await requireRole(request, env, "moderator");
+  if (!session) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+
+  let body: { path?: string; status?: string };
+  try {
+    body = await request.json();
+  } catch {
+    return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+  }
+
+  if (!body.path || !body.path.startsWith("_businesses/") || !body.path.endsWith(".md")) {
+    return new Response(JSON.stringify({ error: "Invalid path" }), { status: 400, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+  }
+  if (body.status !== "approved" && body.status !== "pending") {
+    return new Response(JSON.stringify({ error: "Status must be 'approved' or 'pending'" }), { status: 400, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+  }
+
+  const getRes = await githubGet(body.path, env);
+  if (!getRes.ok) {
+    return new Response(JSON.stringify({ error: "Business not found" }), { status: 404, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+  }
+  const fileData: { sha: string; content: string } = await getRes.json();
+  const currentContent = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, ""))));
+  const fields = parseFrontMatter(currentContent);
+  fields.status = body.status;
+
+  const putRes = await githubPut(
+    body.path,
+    buildFrontMatter(fields),
+    `Moderator ${body.status === "approved" ? "approved" : "unapproved"} business: ${fields.name || body.path}`,
+    env,
+    fileData.sha
+  );
+
+  if (!putRes.ok) {
+    const err = await putRes.text();
+    return new Response(JSON.stringify({ error: `Failed to update status: ${err}` }), { status: 502, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+  }
+
+  return new Response(JSON.stringify({ ok: true }), {
+    status: 200,
+    headers: { ...corsHeaders("GET, POST, PATCH, DELETE", request), "Content-Type": "application/json" },
   });
 }
 
