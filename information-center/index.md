@@ -118,49 +118,54 @@ permalink: /information-center/
 
         <div class="grid md:grid-cols-2 gap-4">
           <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">Website (optional)</label>
+            <input type="url" id="bs-website" class="form-input" placeholder="https://yourbusiness.com" />
+          </div>
+          <div>
             <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">HST/GST Number (if applicable)</label>
             <input type="text" id="bs-hst" class="form-input" placeholder="Optional" />
           </div>
-          <div>
-            <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">Category</label>
-            <select id="bs-category" required class="form-input" style="cursor:pointer;">
-              <option value="" disabled selected>Select a category…</option>
-              <option>Auto Repair &amp; Auto Detailing</option>
-              <option>Auto Sales</option>
-              <option>Cakes &amp; Bakery</option>
-              <option>Children's Tutoring Service</option>
-              <option>Driving Instructor</option>
-              <option>Event Organizers / Decorations</option>
-              <option>Food Packaging Supplies</option>
-              <option>Gym Personal Trainer &amp; Dietitian</option>
-              <option>Heena (Mehandi)</option>
-              <option>Home Cleaning</option>
-              <option>Home Security &amp; Cameras</option>
-              <option>Homeopathy Specialist</option>
-              <option>Immigration Service Providers</option>
-              <option>Indian Artificial Jewellery</option>
-              <option>Indian Convenience Stores</option>
-              <option>Indian Food Tiffin Service</option>
-              <option>Indian Pizza Stores</option>
-              <option>Indian Restaurant</option>
-              <option>Laptop / Desktop Repair</option>
-              <option>Lawn Mowing &amp; Landscaping</option>
-              <option>Medical Appointments (Work Permit)</option>
-              <option>Notary &amp; Commissioner of Oaths</option>
-              <option>Packers and Movers</option>
-              <option>Photography &amp; Content Creation</option>
-              <option>Printing (Banners/Signs/Labels)</option>
-              <option>Realtors</option>
-              <option>Renovation / Handyman / Paint / Plumber / Electrician</option>
-              <option>Salon / Barber (Kids, Men &amp; Women)</option>
-              <option>Software Solutions</option>
-              <option>Stitching and Alterations</option>
-              <option>Tax, Finance, Insurance &amp; Accounting</option>
-              <option>US Visa Appointment</option>
-              <option>Web App / Website Design &amp; Development</option>
-              <option>Other</option>
-            </select>
-          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-stone-500 uppercase mb-1">Category</label>
+          <select id="bs-category" required class="form-input" style="cursor:pointer;">
+            <option value="" disabled selected>Select a category…</option>
+            <option>Auto Repair &amp; Auto Detailing</option>
+            <option>Auto Sales</option>
+            <option>Cakes &amp; Bakery</option>
+            <option>Children's Tutoring Service</option>
+            <option>Driving Instructor</option>
+            <option>Event Organizers / Decorations</option>
+            <option>Food Packaging Supplies</option>
+            <option>Gym Personal Trainer &amp; Dietitian</option>
+            <option>Heena (Mehandi)</option>
+            <option>Home Cleaning</option>
+            <option>Home Security &amp; Cameras</option>
+            <option>Homeopathy Specialist</option>
+            <option>Immigration Service Providers</option>
+            <option>Indian Artificial Jewellery</option>
+            <option>Indian Convenience Stores</option>
+            <option>Indian Food Tiffin Service</option>
+            <option>Indian Pizza Stores</option>
+            <option>Indian Restaurant</option>
+            <option>Laptop / Desktop Repair</option>
+            <option>Lawn Mowing &amp; Landscaping</option>
+            <option>Medical Appointments (Work Permit)</option>
+            <option>Notary &amp; Commissioner of Oaths</option>
+            <option>Packers and Movers</option>
+            <option>Photography &amp; Content Creation</option>
+            <option>Printing (Banners/Signs/Labels)</option>
+            <option>Realtors</option>
+            <option>Renovation / Handyman / Paint / Plumber / Electrician</option>
+            <option>Salon / Barber (Kids, Men &amp; Women)</option>
+            <option>Software Solutions</option>
+            <option>Stitching and Alterations</option>
+            <option>Tax, Finance, Insurance &amp; Accounting</option>
+            <option>US Visa Appointment</option>
+            <option>Web App / Website Design &amp; Development</option>
+            <option>Other</option>
+          </select>
         </div>
 
         <button type="submit" class="w-full btn-saffron py-3 rounded-lg text-sm font-semibold tracking-wide mt-2">
@@ -203,9 +208,12 @@ permalink: /information-center/
     {
       "name": {{ b.name | jsonify }},
       "category": {{ b.category | jsonify }},
+      "owner_name": {{ b.owner_name | jsonify }},
       "phone": {{ b.phone | jsonify }},
       "whatsapp": {{ b.whatsapp | jsonify }},
-      "address": {{ b.address | jsonify }}
+      "address": {{ b.address | jsonify }},
+      "website": {{ b.website | jsonify }},
+      "hst_number": {{ b.hst_number | jsonify }}
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ]
@@ -242,13 +250,30 @@ document.addEventListener('DOMContentLoaded', () => {
       : `<div class="flex items-start gap-2 text-stone-400 text-sm italic"><span style="color:var(--saffron);">📞</span>Contact not listed</div>`;
     const addrHTML = b.address
       ? `<div class="flex items-start gap-2 text-stone-500 text-sm mt-1"><span style="color:var(--saffron);">📍</span>${b.address}</div>` : '';
+    const ownerHTML = b.owner_name
+      ? `<div class="flex items-start gap-2 text-stone-500 text-sm mt-1"><span style="color:var(--saffron);">👤</span>${b.owner_name}</div>` : '';
+    const websiteHTML = b.website
+      ? `<div class="flex items-start gap-2 text-stone-500 text-sm mt-1"><span style="color:var(--saffron);">🌐</span><a href="${b.website}" target="_blank" rel="noopener" class="hover:text-saffron-dark" style="text-decoration:none;color:inherit;word-break:break-all;">${b.website}</a></div>`
+      : `<div class="flex items-start gap-2 text-stone-400 text-sm italic mt-1"><span style="color:var(--saffron);">🌐</span>Not available</div>`;
     const waLink = getWhatsAppLink(b);
     const waHTML = waLink
       ? `<a href="${waLink}" target="_blank" rel="noopener" class="btn-green" style="padding:8px 16px;font-size:0.8rem;margin-top:12px;display:inline-block;">WhatsApp</a>` : '';
+    const hstHTML = b.hst_number
+      ? `<span class="text-stone-600">${b.hst_number}</span>`
+      : `<span class="text-stone-400 italic">Not available</span>`;
+
     return `<div class="value-card">
-      <h3 class="text-base font-semibold mb-2">${b.name}</h3>
-      ${phoneHTML}${addrHTML}
-      ${waHTML}
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex-1 min-w-0">
+          <h3 class="text-base font-semibold mb-2">${b.name}</h3>
+          ${ownerHTML}${phoneHTML}${addrHTML}${websiteHTML}
+          ${waHTML}
+        </div>
+        <div class="text-right flex-shrink-0 pl-3 border-l border-stone-150" style="border-color:#ede8db;">
+          <div class="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-1">HST No.</div>
+          <div class="text-sm">${hstHTML}</div>
+        </div>
+      </div>
     </div>`;
   }
 
@@ -314,6 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
       description: document.getElementById('bs-description').value.trim(),
       phone: document.getElementById('bs-phone').value.trim(),
       whatsapp: document.getElementById('bs-whatsapp').value.trim(),
+      website: document.getElementById('bs-website').value.trim(),
       hst_number: document.getElementById('bs-hst').value.trim(),
       category: document.getElementById('bs-category').value,
     };

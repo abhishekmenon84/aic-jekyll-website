@@ -39,6 +39,7 @@ interface BusinessSubmission {
   description: string;
   phone: string;
   whatsapp: string;
+  website: string;
   hst_number: string;
   category: string;
 }
@@ -186,6 +187,7 @@ async function handleSubmitBusiness(request: Request, env: Env): Promise<Respons
   const description = cap(body.description, 1000);
   const phone = cap(body.phone, 60);
   const whatsapp = cap(body.whatsapp || "", 20).replace(/[^0-9]/g, "");
+  const website = cap(body.website || "", 200);
   const hst_number = cap(body.hst_number || "", 30);
   const category = cap(body.category, 100);
 
@@ -202,6 +204,7 @@ async function handleSubmitBusiness(request: Request, env: Env): Promise<Respons
     `phone: ${yamlString(phone)}`,
     `whatsapp: ${yamlString(whatsapp)}`,
     `address: ''`,
+    `website: ${yamlString(website)}`,
     `owner_name: ${yamlString(owner_name)}`,
     `description: ${yamlString(description)}`,
     `hst_number: ${yamlString(hst_number)}`,
