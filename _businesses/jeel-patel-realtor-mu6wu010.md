@@ -8,6 +8,6 @@ website: ''
 owner_name: 'Jeel Patel'
 description: 'Real Estate'
 hst_number: ''
-status: pending
+status: 'approved'
 submitted_at: '2026-09-18'
 ---
