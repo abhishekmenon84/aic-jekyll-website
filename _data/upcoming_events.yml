@@ -28,3 +28,14 @@
   featured: true
   register_url: "/events/youth/stand-strong/"
   image: "/assets/images/logo.jpeg"
+
+- title: "Hanuman Ansh 2026 Private Premiere Event"
+  date: "2026-09-26"
+  time: "11:00 AM - 1:00 PM"
+  location: "Cineplex Fredericton, 1381 Regent St, Fredericton, NB"
+  description: "Come watch the world premiere of Hanuman Ansh 2026"
+  category: "Community"
+  emoji: "🙏"
+  featured: true
+  register_url: "https://www.zeffy.com/en-CA/ticketing/hanuman-ansh-2026-private-premiere-event"
+  image: "/assets/images/upcoming_events/hanuman-ansh-2026-private-premiere-event.jpeg"
