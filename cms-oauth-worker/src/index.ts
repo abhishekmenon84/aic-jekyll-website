@@ -301,23 +301,27 @@ export default {
       return handleSetModeratorCredentials(request, env);
     }
 
-    // Admin settings login — parallel to Decap's /auth + /callback below, but
+    // Admin settings login — parallel to Decap's /auth flow below, but
     // issues a bearer token + redirect instead of a postMessage handshake.
+    //
+    // Important: this reuses the SAME /callback endpoint as Decap's flow
+    // below (not a separate /admin/callback) because the GitHub OAuth App
+    // only has one registered callback URL. Apps created after 2026-08-03
+    // default to exact-match redirect_uri validation (no subpath/wildcard
+    // matching), so a distinct /admin/callback would be rejected by GitHub
+    // with "redirect_uri is not associated with this application." The two
+    // flows are distinguished by which state cookie is present when
+    // /callback runs — see below.
     if (url.pathname === "/admin/auth") {
       const state = randomState();
       const authorizeUrl = new URL(GITHUB_AUTHORIZE_URL);
       authorizeUrl.searchParams.set("client_id", env.GITHUB_CLIENT_ID);
       authorizeUrl.searchParams.set("scope", "read:user");
       authorizeUrl.searchParams.set("state", state);
-      authorizeUrl.searchParams.set("redirect_uri", `${url.origin}/admin/callback`);
 
       const headers = new Headers({ Location: authorizeUrl.toString() });
       headers.append("Set-Cookie", `admin_oauth_state=${state}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=600`);
       return new Response(null, { status: 302, headers });
-    }
-
-    if (url.pathname === "/admin/callback") {
-      return handleAdminCallback(request, env, url);
     }
 
     if (url.pathname === "/auth") {
@@ -340,9 +344,15 @@ export default {
       const code = url.searchParams.get("code");
       const state = url.searchParams.get("state");
       const cookie = request.headers.get("Cookie") || "";
-      const cookieState = cookie.match(/oauth_state=([^;]+)/)?.[1];
+      const decapCookieState = cookie.match(/(?:^|;\s*)oauth_state=([^;]+)/)?.[1];
+      const adminCookieState = cookie.match(/(?:^|;\s*)admin_oauth_state=([^;]+)/)?.[1];
 
-      if (!code || !state || !cookieState || state !== cookieState) {
+      // Which flow triggered this callback? Checked against each flow's own
+      // cookie so one flow's state can't be replayed against the other.
+      const isAdminSettingsFlow = !!adminCookieState && adminCookieState === state;
+      const isDecapFlow = !!decapCookieState && decapCookieState === state;
+
+      if (!code || !state || (!isAdminSettingsFlow && !isDecapFlow)) {
         return new Response("Invalid OAuth state", { status: 400 });
       }
 
@@ -362,6 +372,9 @@ export default {
       const tokenData: { access_token?: string; error?: string } = await tokenRes.json();
 
       if (!tokenData.access_token) {
+        if (isAdminSettingsFlow) {
+          return new Response(`GitHub login failed: ${tokenData.error || "token_exchange_failed"}`, { status: 401 });
+        }
         return new Response(
           renderPostMessage({ error: tokenData.error || "token_exchange_failed" }),
           { headers: { "Content-Type": "text/html" } }
@@ -382,6 +395,9 @@ export default {
         .filter(Boolean);
 
       if (!user.login || !allowed.includes(user.login.toLowerCase())) {
+        if (isAdminSettingsFlow) {
+          return new Response("This GitHub account is not on the AIC admin allowlist.", { status: 403 });
+        }
         return new Response(
           renderPostMessage({
             error: "not_authorized",
@@ -390,6 +406,15 @@ export default {
           }),
           { headers: { "Content-Type": "text/html" } }
         );
+      }
+
+      if (isAdminSettingsFlow) {
+        const exp = Math.floor(Date.now() / 1000) + SESSION_TTL_SECONDS;
+        const adminToken = await createToken({ role: "admin", exp }, env.SESSION_SECRET);
+        // Hand the token to the settings page via a same-origin-safe
+        // redirect: the page reads it out of the URL fragment (never sent
+        // to any server) and stores it in sessionStorage.
+        return Response.redirect(`https://aicfred.org/admin-settings/#token=${adminToken}`, 302);
       }
 
       return new Response(
@@ -608,50 +633,6 @@ async function handleUpdateBusinessStatus(request: Request, env: Env): Promise<R
     status: 200,
     headers: { ...corsHeaders("GET, POST, PATCH, DELETE", request), "Content-Type": "application/json" },
   });
-}
-
-async function handleAdminCallback(request: Request, env: Env, url: URL): Promise<Response> {
-  const code = url.searchParams.get("code");
-  const state = url.searchParams.get("state");
-  const cookie = request.headers.get("Cookie") || "";
-  const cookieState = cookie.match(/admin_oauth_state=([^;]+)/)?.[1];
-
-  if (!code || !state || !cookieState || state !== cookieState) {
-    return new Response("Invalid OAuth state", { status: 400 });
-  }
-
-  const tokenRes = await fetch(GITHUB_TOKEN_URL, {
-    method: "POST",
-    headers: { Accept: "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify({
-      client_id: env.GITHUB_CLIENT_ID,
-      client_secret: env.GITHUB_CLIENT_SECRET,
-      code,
-      redirect_uri: `${url.origin}/admin/callback`,
-    }),
-  });
-  const tokenData: { access_token?: string } = await tokenRes.json();
-  if (!tokenData.access_token) {
-    return new Response("GitHub login failed", { status: 401 });
-  }
-
-  const userRes = await fetch(GITHUB_USER_URL, {
-    headers: { Authorization: `token ${tokenData.access_token}`, "User-Agent": "aic-cms-oauth-worker" },
-  });
-  const user: { login?: string } = await userRes.json();
-  const allowed = env.ALLOWED_USERS.split(",").map((u) => u.trim().toLowerCase()).filter(Boolean);
-
-  if (!user.login || !allowed.includes(user.login.toLowerCase())) {
-    return new Response("This GitHub account is not on the AIC admin allowlist.", { status: 403 });
-  }
-
-  const exp = Math.floor(Date.now() / 1000) + SESSION_TTL_SECONDS;
-  const adminToken = await createToken({ role: "admin", exp }, env.SESSION_SECRET);
-
-  // Hand the token to the settings page via a same-origin-safe redirect: the
-  // page itself reads it out of the URL fragment (never sent to the server)
-  // and stores it in sessionStorage.
-  return Response.redirect(`https://aicfred.org/admin-settings/#token=${adminToken}`, 302);
 }
 
 async function handleSetModeratorCredentials(request: Request, env: Env): Promise<Response> {
