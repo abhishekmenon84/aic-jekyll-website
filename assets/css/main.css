@@ -238,7 +238,12 @@ h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
 }
 
 /* ── MOBILE MENU ── */
-#mobile-menu { display: none; }
+#mobile-menu {
+  display: none;
+  background: rgba(28, 28, 30, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 #mobile-menu.open { display: flex; }
 
 /* ── PAST EVENT CARD ── */

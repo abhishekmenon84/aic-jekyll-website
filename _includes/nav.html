@@ -51,7 +51,7 @@
 </nav>
 
 <!-- Mobile menu overlay -->
-<div id="mobile-menu" class="fixed inset-0 z-40 bg-charcoal/98 flex-col items-center justify-center gap-6 hidden">
+<div id="mobile-menu" class="fixed inset-0 z-40 flex-col items-center justify-center gap-6 hidden">
   <button onclick="toggleMenu()" class="absolute top-6 right-6 text-white text-3xl" aria-label="Close">✕</button>
   {% for item in site.data.navigation.main %}
     {% if item.dropdown %}
