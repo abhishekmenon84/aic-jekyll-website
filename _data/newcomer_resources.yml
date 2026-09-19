@@ -80,6 +80,33 @@
       phone: "1 888 762 8600"
       url: "https://www.gnb.ca/en/topic/driving-transportation/driving-licensing/licences-new-residents.html"
 
+- topic: "Indian Visa, Passport & OCI Services"
+  icon: "🛂"
+  items:
+    - name: "BLS International — Halifax Centre (nearest to Fredericton)"
+      description: "BLS International is the current, sole authorized outsourced service provider for Indian visa, passport, OCI, and Police Clearance Certificate applications in Canada, on behalf of the Indian High Commission/Consulates. The Halifax centre is the nearest walk-in location for Atlantic Canada. Reported hours vary by source (roughly Mon–Fri/Sat, 8 am–4 or 5 pm, with document submission typically only accepted until early-to-mid afternoon) — confirm current hours and your exact jurisdiction (Toronto vs. Ottawa) on the BLS website before travelling, since requirements can change."
+      address: "Unit 101A, 998 Parkland Drive, Halifax, NS B3M 0A6"
+      phone: "902 700 6980"
+      url: "https://www.blsindia-canada.com/"
+
+    - name: "Indian e-Visa (for visiting India)"
+      description: "For tourist, business, or medical visits to India, an e-Visa can be applied for entirely online — no BLS visit needed. Apply 4–120 days before travel; your passport must be valid for at least 6 months from your arrival date in India. Fee is roughly USD $80 for Canadian citizens (plus a bank transaction charge), varying by visa type and duration."
+      address: ""
+      phone: ""
+      url: "https://indianvisaonline.gov.in/evisa/tvoa.html"
+
+    - name: "Indian Passport Renewal / Reissue"
+      description: "Apply online via the Passport Seva Portal, then submit your original passport and documents (proof of Canadian address/status, photos, and applicable annexures) at a BLS centre — in person or by mail, depending on jurisdiction. Standard processing is about 3–4 weeks (up to 8 weeks in some cases); expedited Tatkal service is 5–10 business days. Fees start around CAD $106 for a standard 36-page booklet."
+      address: ""
+      phone: ""
+      url: "https://www.blsindia-canada.com/toronto-jurisdiction/new-booklet-or-renewal.php"
+
+    - name: "OCI (Overseas Citizen of India) Card"
+      description: "For Canadian citizens of Indian origin. As of April 2026, OCI applications must be submitted in person at a BLS centre — biometrics are required, and postal/mail-in OCI applications are no longer accepted. You'll need your current Canadian passport (6+ months validity) and proof of Indian origin (e.g. a previous Indian passport or birth certificate)."
+      address: ""
+      phone: ""
+      url: "https://www.blsindia-canada.com/toronto-jurisdiction/ocihome.php"
+
 - topic: "Schools & Education"
   icon: "🎒"
   items:
