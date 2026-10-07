@@ -116,7 +116,15 @@ description: "AIC Fredericton — Fostering a vibrant, inclusive, and engaged In
     <div id="official-documents" class="mt-20 pt-16 border-t border-stone-200">
       <span class="section-label">Governance</span>
       <h3 class="section-title mb-8">Official Documents</h3>
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Letters Patent of Incorporation -->
+        <div class="value-card flex flex-col">
+          <div class="text-3xl mb-3">🏛️</div>
+          <h4 class="text-lg font-semibold mb-2">Letters Patent of Incorporation</h4>
+          <p class="text-stone-500 text-sm leading-relaxed mb-4 flex-grow">Issued June 16, 1972 by the Province of New Brunswick, officially incorporating the Association of Indo-Canadians, Inc. (NB Corporation No. 000839).</p>
+          <a href="{{ '/assets/documents/000839_ASSOCIATION OF INDO-CANADIANS, INC._Letters Patent Incorporating.pdf' | relative_url }}" class="btn-saffron text-sm py-2 px-4 inline-block" download>Download PDF</a>
+        </div>
+
         <!-- AIC Constitution -->
         <div class="value-card flex flex-col">
           <div class="text-3xl mb-3">📋</div>
