@@ -298,6 +298,12 @@ export default {
       return new Response("Method not allowed", { status: 405, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
     }
 
+    if (url.pathname === "/public/businesses") {
+      if (request.method === "OPTIONS") return new Response(null, { headers: corsHeaders("GET", request) });
+      if (request.method !== "GET") return new Response("Method not allowed", { status: 405, headers: corsHeaders("GET", request) });
+      return handlePublicBusinesses(request, env);
+    }
+
     if (url.pathname === "/admin/set-moderator-credentials") {
       if (request.method === "OPTIONS") return new Response(null, { headers: corsHeaders("POST", request) });
       if (request.method !== "POST") return new Response("Method not allowed", { status: 405, headers: corsHeaders("POST", request) });
@@ -458,14 +464,17 @@ async function handleModeratorLogin(request: Request, env: Env): Promise<Respons
   });
 }
 
-async function handleListBusinesses(request: Request, env: Env): Promise<Response> {
-  const session = await requireRole(request, env, "moderator");
-  if (!session) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+interface BusinessRecord {
+  path: string;
+  [field: string]: string;
+}
 
-  // Fetching each of ~100+ files individually via the REST Contents API blows
-  // past the Worker's per-invocation subrequest limit. The GraphQL API can
-  // return an entire directory's filenames AND raw file contents in a single
-  // HTTP call, so we use that here instead.
+// Fetching each of ~100+ files individually via the REST Contents API blows
+// past the Worker's per-invocation subrequest limit. The GraphQL API can
+// return an entire directory's filenames AND raw file contents in a single
+// HTTP call, so we use that here instead. Shared by both the authenticated
+// moderator listing and the public live-read endpoint below.
+async function fetchAllBusinesses(env: Env): Promise<BusinessRecord[]> {
   const [owner, repo] = env.GITHUB_REPO.split("/");
   const query = `
     query {
@@ -495,7 +504,7 @@ async function handleListBusinesses(request: Request, env: Env): Promise<Respons
   });
 
   if (!gqlRes.ok) {
-    return new Response(JSON.stringify({ error: "Failed to list businesses" }), { status: 502, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+    throw new Error(`GitHub GraphQL request failed: ${gqlRes.status}`);
   }
 
   const gqlData: {
@@ -504,14 +513,51 @@ async function handleListBusinesses(request: Request, env: Env): Promise<Respons
   } = await gqlRes.json();
 
   const entries = gqlData.data?.repository?.object?.entries || [];
-  const businesses = entries
+  return entries
     .filter((e) => e.name.endsWith(".md") && e.object?.text)
     .map((e) => ({ path: `_businesses/${e.name}`, ...parseFrontMatter(e.object!.text!) }));
+}
 
-  return new Response(JSON.stringify({ businesses }), {
-    status: 200,
-    headers: { ...corsHeaders("GET, POST, PATCH, DELETE", request), "Content-Type": "application/json" },
-  });
+async function handleListBusinesses(request: Request, env: Env): Promise<Response> {
+  const session = await requireRole(request, env, "moderator");
+  if (!session) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+
+  try {
+    const businesses = await fetchAllBusinesses(env);
+    return new Response(JSON.stringify({ businesses }), {
+      status: 200,
+      headers: { ...corsHeaders("GET, POST, PATCH, DELETE", request), "Content-Type": "application/json" },
+    });
+  } catch {
+    return new Response(JSON.stringify({ error: "Failed to list businesses" }), { status: 502, headers: corsHeaders("GET, POST, PATCH, DELETE", request) });
+  }
+}
+
+// Public, unauthenticated, read-only endpoint for the Information Center
+// page. Returns only approved businesses, live from GitHub — no Jekyll
+// rebuild needed for an approval/edit/deletion to show up publicly.
+// Cache-Control lets Cloudflare's edge cache the response for a short
+// window, which keeps updates feeling instant (well under a minute of
+// staleness) while protecting GitHub's API from being hit on every page
+// load.
+async function handlePublicBusinesses(request: Request, env: Env): Promise<Response> {
+  try {
+    const all = await fetchAllBusinesses(env);
+    const approved = all
+      .filter((b) => b.status === "approved")
+      .map(({ path, status, ...rest }) => rest); // strip internal fields not needed publicly
+
+    return new Response(JSON.stringify({ businesses: approved }), {
+      status: 200,
+      headers: {
+        ...corsHeaders("GET", request),
+        "Content-Type": "application/json",
+        "Cache-Control": "public, max-age=30",
+      },
+    });
+  } catch {
+    return new Response(JSON.stringify({ error: "Failed to load businesses" }), { status: 502, headers: corsHeaders("GET", request) });
+  }
 }
 
 async function handleAddBusiness(request: Request, env: Env): Promise<Response> {

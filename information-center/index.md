@@ -199,32 +199,62 @@ permalink: /information-center/
   </div>
 </section>
 
+<!--
+  Businesses are fetched live from the Worker (see fallback-data below for
+  why) so that approving, editing, or removing a listing shows up on this
+  page immediately — no Jekyll rebuild needed, and no pile-up of rebuilds
+  if several businesses are approved back to back. Essentials rarely
+  change and aren't part of the approval workflow, so they stay baked in
+  at build time as usual.
+-->
 <script id="ic-data" type="application/json">
 {
-  "essentials": {{ site.data.essential_services | jsonify }},
-  "businesses": [
-    {% assign approved = site.businesses | where: "status", "approved" %}
-    {% for b in approved %}
-    {
-      "name": {{ b.name | jsonify }},
-      "category": {{ b.category | jsonify }},
-      "owner_name": {{ b.owner_name | jsonify }},
-      "phone": {{ b.phone | jsonify }},
-      "whatsapp": {{ b.whatsapp | jsonify }},
-      "address": {{ b.address | jsonify }},
-      "website": {{ b.website | jsonify }},
-      "hst_number": {{ b.hst_number | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ]
+  "essentials": {{ site.data.essential_services | jsonify }}
 }
 </script>
 
+<!--
+  Fallback only: the live /public/businesses endpoint is the source of
+  truth. This embedded snapshot (from the last site build) is used only
+  if that request fails, so the page still shows something reasonable
+  during a Worker outage rather than an empty directory.
+-->
+<script id="ic-data-fallback" type="application/json">
+[
+  {% assign approved = site.businesses | where: "status", "approved" %}
+  {% for b in approved %}
+  {
+    "name": {{ b.name | jsonify }},
+    "category": {{ b.category | jsonify }},
+    "owner_name": {{ b.owner_name | jsonify }},
+    "phone": {{ b.phone | jsonify }},
+    "whatsapp": {{ b.whatsapp | jsonify }},
+    "address": {{ b.address | jsonify }},
+    "website": {{ b.website | jsonify }},
+    "hst_number": {{ b.hst_number | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
+</script>
+
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  const PUBLIC_BUSINESSES_URL = 'https://aic-cms-oauth.egressiq.workers.dev/public/businesses';
+
   const dataEl = document.getElementById('ic-data');
   if (!dataEl) return;
-  const { essentials, businesses } = JSON.parse(dataEl.textContent);
+  const { essentials } = JSON.parse(dataEl.textContent);
+
+  let businesses;
+  try {
+    const res = await fetch(PUBLIC_BUSINESSES_URL);
+    if (!res.ok) throw new Error('Live fetch failed');
+    businesses = (await res.json()).businesses;
+  } catch (err) {
+    console.warn('Falling back to build-time business snapshot:', err);
+    businesses = JSON.parse(document.getElementById('ic-data-fallback').textContent);
+  }
+
   const all = [...essentials, ...businesses];
 
   const searchEl   = document.getElementById('ic-search');
