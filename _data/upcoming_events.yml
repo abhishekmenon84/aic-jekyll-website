@@ -29,13 +29,14 @@
   register_url: "/events/youth/stand-strong/"
   image: "/assets/images/logo.jpeg"
 
-- title: "Hanuman Ansh 2026 Private Premiere Event"
-  date: "2026-09-26"
-  time: "11:00 AM - 1:00 PM"
-  location: "Cineplex Fredericton, 1381 Regent St, Fredericton, NB"
-  description: "Come watch the world premiere of Hanuman Ansh 2026"
-  category: "Community"
-  emoji: "🙏"
+- title: "AIC New  Year's Eve 2027"
+  date: "2026-12-31"
+  time: "07:00 PM"
+  location: "TBD"
+  description: "Let's ring in the New Year with music, food, and fun!"
+  category: "Gala"
+  emoji: "🎉"
   featured: true
-  register_url: "https://www.zeffy.com/en-CA/ticketing/hanuman-ansh-2026-private-premiere-event"
-  image: "/assets/images/upcoming_events/hanuman-ansh-2026-private-premiere-event.jpeg"
+  register_url: "https://www.zeffy.com/en-CA/ticketing/aic-new-years-eve--2027"
+  image: "/assets/images/upcoming_events/new_year_2027.jpeg"
+    

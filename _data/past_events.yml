@@ -71,7 +71,7 @@
   gallery:
   - "/assets/images/past_events/Republic_Day_Celeb_2026.jpg"
 
-- title: "New Year’s Eve Gala 2025"
+- title: "New Year’s Eve Gala 2026"
   date: "2025-12-31"
   location: "Charlotte Street Arts Centre, Fredericton, NB"
   category: "Cultural"
@@ -270,3 +270,14 @@
     - "/assets/images/past_events/Indian-Independence-Day-2026/Indian-Independence-Day-2026-6.jpeg"
     - "/assets/images/past_events/Indian-Independence-Day-2026/Indian-Independence-Day-2026-7.jpeg"
     
+- title: "Hanuman Ansh 2026 Private Premiere Event"
+  date: "2026-09-26"
+  location: "Cineplex Fredericton, 1381 Regent St, Fredericton, NB"
+  category: "Community"
+  emoji: "🙏"
+  attendees: 60
+  image: "/assets/images/past_events/Hanuman-Ansh/Hanuman-Ansh.jpeg"
+  gallery:
+    - "/assets/images/past_events/Hanuman-Ansh/Hanuman-Ansh-1.jpeg"
+    - "/assets/images/past_events/Hanuman-Ansh/Hanuman-Ansh-2.jpeg"
+    - "/assets/images/past_events/Hanuman-Ansh/Hanuman-Ansh-3.jpeg"
