@@ -256,7 +256,14 @@ function parseFrontMatter(content: string): Record<string, string> {
     const m = line.match(/^([a-zA-Z_]+):\s*(.*)$/);
     if (!m) continue;
     let value = m[2].trim();
-    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+    // yamlString() writes single-quoted scalars and escapes embedded single
+    // quotes by doubling them (YAML's own escaping rule). Un-escape that
+    // here on read, or every approve/edit round-trip doubles any apostrophe
+    // in the data again — e.g. "Zain's" -> "Zain''s" -> "Zain''''s" ... on
+    // repeated edits.
+    if (value.startsWith("'") && value.endsWith("'")) {
+      value = value.slice(1, -1).replace(/''/g, "'");
+    } else if (value.startsWith('"') && value.endsWith('"')) {
       value = value.slice(1, -1);
     }
     fields[m[1]] = value;

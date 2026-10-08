@@ -1,5 +1,5 @@
 ---
-name: 'Zain''''s Cakes & Bakes'
+name: 'Zain''s Cakes & Bakes'
 category: 'Cakes & Bakery'
 phone: '5062452930'
 whatsapp: ''
