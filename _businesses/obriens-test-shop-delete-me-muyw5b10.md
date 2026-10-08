@@ -8,6 +8,6 @@ website: ''
 owner_name: 'Test O''Owner'
 description: 'Testing apostrophe round-trip'
 hst_number: ''
-status: 'pending'
+status: 'approved'
 submitted_at: '2026-10-08'
 ---
