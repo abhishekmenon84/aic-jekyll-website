@@ -26,6 +26,57 @@
       phone: "211"
       url: "https://nb.211.ca/"
 
+- topic: "Food Security for Low-Income Families"
+  icon: "🥫"
+  items:
+    - name: "Greener Village Food Bank"
+      description: "Fredericton's main food bank — free monthly grocery boxes, fresh produce, dairy, meat, and dietary accommodations (including halal and vegetarian). No income threshold to qualify; first-time visitors should bring ID and proof of address. Food distribution Monday–Thursday, 9 am–3 pm (closed for lunch); call ahead to confirm, as hours vary across listings."
+      address: "686 Riverside Drive, Fredericton, NB E3A 8C2"
+      phone: "506 459 7461"
+      url: "https://www.greenervillage.ca/"
+
+    - name: "Oromocto & Surrounding Area Food Bank"
+      description: "Emergency food hampers for Oromocto, Burton, Geary, and surrounding communities, plus school meal programs and seasonal food assistance. New clients need photo ID, proof of address, and NB Medicare cards for each household member. Client service hours: Tues–Thurs, 10 am–12 pm and 1–3 pm."
+      address: "101 D'Amours Street, Oromocto, NB E2V 0G5"
+      phone: "506 357 3461"
+      url: "https://oromoctofoodbank.ca/get-help/"
+
+    - name: "Salvation Army Community & Family Services"
+      description: "Food bank, emergency household support, and clothing assistance. Call ahead to confirm current hours and sign-up process — multiple phone numbers appear across directories, so 506-453-1706 (listed most consistently) is the best first call."
+      address: "531 St. Mary's Street, Fredericton, NB E3A 8H4"
+      phone: "506 453 1706"
+      url: "https://www.connectfredericton.ca/agency/detail/?agency_id=177909"
+
+    - name: "Fredericton Community Kitchens"
+      description: "Free prepared meals and emergency food boxes — call to request one. Also supplies meals to local shelters, housing programs, and the Fredericton Public Library's community fridge."
+      address: "65 Brunswick Street, Fredericton, NB E3B 1G5"
+      phone: "506 457 1788"
+      url: "https://www.frederictoncommunitykitchens.com/no-cost-food-access"
+
+    - name: "Wednesdays at Wilmot"
+      description: "Free weekly community lunch (Sept–mid-June, doors open at noon — arrive early, lines form) plus grocery gift cards every two months and fresh food bags twice a month, first-come first-served before 1 pm. Also offers free haircuts, bus tickets, and personal care items."
+      address: "473 King Street, Fredericton, NB"
+      phone: "506 458 1066"
+      url: "https://www.wilmotuc.nb.ca/wednesdays-at-wilmot"
+
+    - name: "Community Food Smart"
+      description: "Affordable bulk-buying produce program — not a food bank or charity, open to everyone with no income qualification. A bag of fresh fruit and vegetables costs $15 (roughly $30–35 retail value), 1–2 bags per month, no commitment. Order through a local distributor (e.g. Under One Sky, Stepping Stone Seniors Centre, or MCAF) — see their site for current pickup locations."
+      address: ""
+      phone: ""
+      url: "https://www.communityfoodsmart.com/"
+
+    - name: "Meals on Wheels of Fredericton"
+      description: "Affordable prepared meal delivery for seniors or anyone unable to cook for themselves. Call to check eligibility, current menu, and cost per meal."
+      address: "880 Hanwell Road, Unit 301B, Fredericton, NB"
+      phone: "506 458 9482"
+      url: "https://frederictonmealsonwheels.ca/"
+
+    - name: "NB Social Development"
+      description: "Provincial financial assistance and referrals that may help with food insecurity, alongside other income support programs."
+      address: ""
+      phone: "1 833 733 7835"
+      url: "https://www2.gnb.ca/content/gnb/en/departments/esic.html"
+
 - topic: "Healthcare"
   icon: "🏥"
   items:
