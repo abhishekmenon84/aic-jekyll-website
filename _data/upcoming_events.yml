@@ -7,17 +7,6 @@
 # register_url: link to your Google Form or Eventbrite
 # ─────────────────────────────────────────────────────────────────────────────
 
-- title: "AIC Diwali Mela 2026"
-  date: "2026-11-14"
-  time: "05:00 PM – 11:00 PM"
-  location: "715, rue Priestman, Fredericton (N.B.) E3B 5W7 @ Bernard-Poirier Theatre"
-  description: "Celebrate the Festival of Lights with stunning dance performances, traditional cuisine, a cultural show, and a spectacular light display. Black-tie optional."
-  category: "Gala"
-  emoji: "🪔"
-  featured: true
-  register_url: "https://www.zeffy.com/en-CA/ticketing/aic-diwali-mela--2026"
-  image: "/assets/images/upcoming_events/Diwali-Gala-2026.jpeg"
-
 - title: "STAND STRONG: Youth Against Racism"
   date: "2026-10-03"
   time: "See schedule of sessions"
@@ -39,4 +28,16 @@
   featured: true
   register_url: "https://www.zeffy.com/en-CA/ticketing/aic-new-years-eve--2027"
   image: "/assets/images/upcoming_events/new_year_2027.jpeg"
+    
+
+- title: "Indian Republic Day 26 January"
+  date: "2027-01-30"
+  time: "04:00 PM"
+  location: "	Willie O’Ree Place Community Center - 605 rue Cliffe Street Fredericton, NB"
+  description: "Let's ring in the New Year with music, food, and fun!"
+  category: "Event"
+  emoji: "🇮🇳"
+  featured: true
+  register_url: "TBD"
+  image: "TBD"
     

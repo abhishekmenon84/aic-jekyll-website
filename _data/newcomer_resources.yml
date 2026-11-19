@@ -77,6 +77,45 @@
       phone: "1 833 733 7835"
       url: "https://www2.gnb.ca/content/gnb/en/departments/esic.html"
 
+- topic: "Housing & Tenancy"
+  icon: "🏠"
+  items:
+    - name: "Fredericton Property Rental"
+      description: "Local property management and rentals — apartment and house listings, online applications, and full-service landlord management (tenant placement, rent collection, inspections, maintenance). Serves Fredericton."
+      address: ""
+      phone: "506 721 7893"
+      url: "https://frederictonpropertyrental.ca/"
+
+    - name: "Dooryard Property Management"
+      description: "Full-service property management for landlords (tenant placement, rent collection, maintenance) and current rental listings for tenants, serving Fredericton and Central New Brunswick."
+      address: ""
+      phone: "506 304 3667"
+      url: "https://dooryardproperties.com/"
+
+    - name: "NB Residential Tenancies Tribunal"
+      description: "Administers the Residential Tenancies Act — the rules on security deposits, leases, rent increases, repairs, and evictions. Landlords must give at least 6 months' notice before raising rent, and rent increases are not allowed in the first 12 months of a tenancy. Tenants have 30 days to apply for a review of a rent increase they believe is unreasonable."
+      address: ""
+      phone: "1 866 640 0940"
+      url: "https://www2.gnb.ca/content/gnb/en/departments/justice/rto.html"
+
+    - name: "NB Housing Subsidized Housing Waitlist"
+      description: "Apply to the waitlist for subsidized housing units through Social Development. Also the entry point for the Canada–New Brunswick Housing Benefit (a rent-subsidy benefit for working low-income renters, limited annual funding, first-come first-served)."
+      address: ""
+      phone: "1 833 733 7835"
+      url: "https://www2.gnb.ca/content/gnb/en/departments/esic.html"
+
+    - name: "NB Power — Equalized Payment Plan & Payment Arrangements"
+      description: "Spreads electricity costs evenly across the year and lets customers with overdue balances (up to $1,200) enrol in equalized billing. NB Power can also set up customized payment arrangements and refer customers facing hardship to assistance programs — call to ask about current options."
+      address: ""
+      phone: "1 800 663 6272"
+      url: "https://nbpower.com/en/accounts-billing/knowledge-is-power/programs-and-support/"
+
+    - name: "PLEIS-NB Tenant Legal Information & Clinics"
+      description: "Free general legal information (not individualized legal advice) on tenant rights, plus seasonal pop-up legal advice clinics for tenants run with the UNB Legal Clinic. Call or email for current clinic dates."
+      address: ""
+      phone: "506 453 5369"
+      url: "https://legalinfonb.ca/"
+
 - topic: "Healthcare"
   icon: "🏥"
   items:
@@ -115,6 +154,87 @@
       address: ""
       phone: "1 888 236 6283"
       url: "https://www.blood.ca/en/blood/donating-blood"
+
+- topic: "Employment & Career Support"
+  icon: "💼"
+  items:
+    - name: "YMCA Career & Employment Centre"
+      description: "Free walk-in job search resource centre open to everyone — computers, printers, scanners, and one-on-one help with resumes, interview prep, and online applications. Monday–Friday, 8:15 am–4:30 pm. Call to book a Job Search Advisor."
+      address: "300 St. Mary's Street, 3rd floor, Fredericton, NB"
+      phone: "506 444 4982"
+      url: "https://fredericton.ymca.ca/global-community/ymca-career-centre/"
+
+    - name: "Multicultural Association of Fredericton (MCAF) — Employment Programs"
+      description: "Employment support for newcomers and immigrants, including foreign credential guidance, workplace culture orientation, and job-search help alongside MCAF's settlement services."
+      address: "28 Saunders Street, Fredericton, NB E3B 1N1"
+      phone: "506 454 8292"
+      url: "https://mcaf.nb.ca/en/"
+
+    - name: "WorkingNB (Post-Secondary Student & General Employment Services)"
+      description: "Provincial employment services — job boards, career counselling, and training program referrals. A starting point for foreign credential recognition questions specific to your profession."
+      address: ""
+      phone: "1 833 679 5222"
+      url: "https://www2.gnb.ca/content/gnb/en/departments/elg/workingnb.html"
+
+- topic: "Financial Literacy & Banking"
+  icon: "💰"
+  items:
+    - name: "Newcomer Banking Packages (Major Banks)"
+      description: "RBC, BMO, Scotiabank, and others offer newcomer-specific account packages — typically fee-free for the first 12 months and credit cards available without Canadian credit history for recent permanent residents, international students, or temporary workers. Terms and eligibility windows vary by bank and change often, so compare current offers directly with each bank before choosing."
+      address: ""
+      phone: ""
+      url: "https://www.canada.ca/en/financial-consumer-agency/services/banking/bank-accounts/newcomers.html"
+
+    - name: "Free Tax Clinics (Community Volunteer Income Tax Program)"
+      description: "Free tax return filing for people with a modest income and a simple tax situation, run by community volunteers through the CRA's program. Use the CRA's clinic finder for current Fredericton-area locations and dates (clinics run seasonally, mainly Feb–Apr)."
+      address: ""
+      phone: ""
+      url: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/community-volunteer-income-tax-program.html"
+
+- topic: "Child Care"
+  icon: "🧸"
+  items:
+    - name: "NB Child Care Subsidies (Parent Subsidy & Daycare Assistance)"
+      description: "Two programs: the Parent Subsidy covers children aged 0–5 at a Designated Early Learning Centre (families earning $37,500 or less qualify for free care, sliding scale up to $80,000); the Daycare Assistance Program (DAP) covers children 0–12 at licensed centres. Permanent residency is not required to qualify — newcomers are eligible. Apply through the Early Childhood Services Portal or contact Social Development."
+      address: ""
+      phone: "1 833 221 9339"
+      url: "https://www2.gnb.ca/content/gnb/en/corporate/promo/improved_early_learning_and_child_care/dcs_info.html"
+
+- topic: "Legal Help"
+  icon: "⚖️"
+  items:
+    - name: "PLEIS-NB Legal Information Line"
+      description: "Free general legal information in English and French (not legal advice) — can point you to free or low-cost legal help and other supports for housing, family law, and more."
+      address: ""
+      phone: "506 453 5369"
+      url: "https://legalinfonb.ca/"
+
+    - name: "New Brunswick Legal Aid Services Commission"
+      description: "Legal aid for qualifying low-income individuals in certain criminal and family law matters (means-tested). Does not cover simple divorces or property division."
+      address: "500 Beaverbrook Court, Suite 501, Fredericton, NB E3B 5X4"
+      phone: "506 444 2777"
+      url: "https://www.legalaid-aidejuridique-nb.ca/"
+
+- topic: "Mental Health & Counselling"
+  icon: "🧠"
+  items:
+    - name: "988 Suicide Crisis Helpline"
+      description: "Free, 24/7, bilingual national crisis line — call or text 988. Available across New Brunswick. (Note: the older Chimo Helpline provincial crisis line was discontinued in March 2025 when its funding was cut — 988 is the current replacement.)"
+      address: ""
+      phone: "988"
+      url: "https://988.ca/"
+
+    - name: "Tele-Care 811 (Mental Health Option)"
+      description: "Free, bilingual, 24/7 line staffed by registered nurses — can also connect you to the NB Addiction and Mental Health Helpline for non-crisis support and referrals."
+      address: ""
+      phone: "811"
+      url: "https://www2.gnb.ca/content/gnb/en/departments/health/Tele-Care/content/Tele-Care_FAQ.html"
+
+    - name: "Canadian Mental Health Association — NB Division"
+      description: "Community mental health programs, support groups, workshops, and advocacy, open to the public. Call to ask about current counselling options and fees."
+      address: "557 Saint Mary's Street, Fredericton, NB"
+      phone: "506 455 5231"
+      url: "https://cmhanb.ca/"
 
 - topic: "Government ID & Documents"
   icon: "🪪"
@@ -166,6 +286,18 @@
       address: "20 Knowledge Park Drive, Fredericton, NB E3C 2P5"
       phone: ""
       url: "https://asdw.nbed.ca/about-asd-w/schools-and-facilities/newcomer-support-centre/"
+
+    - name: "UNB Student Union Food Bank"
+      description: "Free food bank for UNB Fredericton students. Fill out the registration and user agreement forms online, then arrange a pickup time (evening appointment or contactless pickup of a pre-packed bag)."
+      address: "Student Union Building, UNB Fredericton"
+      phone: ""
+      url: "https://unbsu.ca/"
+
+    - name: "UNB Financial Aid — Emergency & International Student Bursaries"
+      description: "UNB offers an Emergency Bursary (any student facing a sudden financial emergency) and an International Student Bursary — Fredericton (for international undergrad/grad students in financial difficulty who've completed at least one full-time term with a 2.0+ GPA). Apply through the Financial Aid Office."
+      address: ""
+      phone: ""
+      url: "https://www.unb.ca/fredericton/financialaid/"
 
 - topic: "Transportation"
   icon: "🚌"
